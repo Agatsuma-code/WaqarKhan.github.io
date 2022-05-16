@@ -9,85 +9,62 @@ let konsole = new Konsole("#Console", ks);
 
 let data = {
     "about": [
-        "I'm Husnain Taj.",
+        "I'm Waqar Khan.",
         `A Programmer.`,
         `That's it.`,
         `Try some other commands.`
     ],
     "languages": [
-        "C#",
+        "C/C++",
         "Javascript + Typescript",
-        "Python",
-        "Java + Kotlin",
-        "C++",
-        "Dart [planning]",
-        "Rust [planning]"
     ],
     "projects": [
         {
-            name: "KonsoleJS",
-            desc: "A JS Library for building console like UI in your website.",
-            url: "https://github.com/HusnainTaj/KonsoleJS"
-        },
-        {
-            name: "DPI Finder",
-            desc: "Simple web app to find DPI of a mouse.",
-            url: "https://github.com/HusnainTaj/DPI-Finder"
+            name: "Resume",
+            desc: "",
+            url: "https://hwaqarkhan.github.io/"
         }
     ],
     "technologies": [
         {
-            "name": "Web",
-            "items": [
-                `Blazor`,
-                `ASP.NET MVC`,
-                `Razor Pages`,
-                `Angular`,
-                `Firebase`,
-                `Wordpress`,
+            name: "Web",
+            items: [
+                "HTML5",
+                "CSS",
+                "BootStrap",
+                "JAVASCRIPT",
+                "Typescript",
+                "Angular",
+                "ASP.NET MVC",
+                "Wordpress"
             ]
         },
         {
-            "name": "Desktop",
-            "items": [
-                `Electron`,
-                `Windows Forms`,
-                `Windows Presentation Foundation (WPF)`,
-                `Windows Services`,
-                `Tauri [planning]`,
-            ]
-        },
-        {
-            "name": "Android",
-            "items": [
-                "Native",
-            ]
-        },
-        {
-            "name": "Cross Platform",
-            "items": [
-                `MAUI [planning]`,
-                `Flutter [planning]`,
-            ]
-        },
-        {
-            "name": "Testing",
-            "items": [
-                "NUnit",
-                "Stryker Mutator [planning]",
-            ]
-        },
-        {
-            "name": "Crypto",
-            "items": [
-                "Solidity",
-                "Solana Smart Contracts using Rust [planning]"
+            name: "Desktop",
+            items: [
+                "Electron",
+                "Tauri [planning"
             ]
         }
     ],
     "links": [
-        { name: "GitHub", url: "https://github.com/HusnainTaj/" },
-        { name: "LinkedIn", url: "https://www.linkedin.com/in/husnain-taj/" },
+
+        {
+            name: "Skype",
+            url: "https://join.skype.com/invite/pd9swoskA8N0"
+        },
+        {
+            name: "Linkedin",
+            url: "https://www.linkedin.com/in/hafiz-waqar-khan/"
+        },
+        {
+            name: "GitHub",
+            url: "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
+        },
+        {
+            name: "YouTube",
+            url: "https://github.com/HWaqarKhan"
+        }
     ]
 };
 

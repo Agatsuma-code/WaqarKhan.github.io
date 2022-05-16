@@ -1344,7 +1344,6 @@ section .container {
   margin: 100px auto;
   font-family: majorMonoDisplay;
   src: url(../../fonts/MajorMonoDisplay-Regular.ttf);
-  transition: ease-in-out 0.3s;
 }
 
 #Console::-webkit-scrollbar-track {
