@@ -68,6 +68,8 @@ let data = {
     ]
 };
 
+
+
 function toAnchorTag(text, url) {
     return `<a target='_blank' tabindex="-1" href='${url}'>${text}</a>`;
 }
@@ -143,6 +145,7 @@ $(async () => {
         });
     }));
 
+    konsole.print("If you don't know how to use it, please type \"help\" to find out commands.")
     konsole.awaitKommand();
 
 });

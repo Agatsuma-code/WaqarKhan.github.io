@@ -1,0 +1,27 @@
+{
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  },
+  "name": "cv",
+  "description": "My Curriculum Vitae",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HWaqarKhan/WaqarKhan.github.io.git"
+  },
+  "keywords": [
+    "Waqar Khan",
+    "resume",
+    "CV"
+  ],
+  "author": "Waqar Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HWaqarKhan/WaqarKhan.github.io/issues"
+  },
+  "homepage": "https://github.com/HWaqarKhan/WaqarKhan.github.io#readme"
+}

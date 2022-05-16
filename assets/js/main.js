@@ -93,9 +93,14 @@ document.querySelector('.console').classList.add('hidden');
         navbarToggle.classList.toggle('bi-x')
       }
       if (this.hash == "#Console") {
+        console.log("🚀 ~ file: main.js ~ line 97 ~ konsole.elem", konsole.elem)
         document.querySelector('.console').classList.remove('hidden');
+        konsole.elem.focus();
       } else {
         document.querySelector('.console').classList.add('hidden');
+        konsole.elem.html("");
+        konsole.awaitKommand();
+
       }
 
       if (this.hash == '#header') {

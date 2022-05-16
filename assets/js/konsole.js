@@ -3,15 +3,21 @@
 
 "use strict";
 class KonsoleSettings {
-    prefix = "$ ";
+    prefix = "T> ";
     animatePrint = true;
     printLetterInterval = 25;
     registerDefaultKommands = true;
+    message = "If you don't know how to use it, please type \"help\" to find out commands "
 
+    konsoleHelpMsg() {
+        return `<pre class="KonsoleHelpMsg"><span class="KonsoleHelpMsg">${this.message}</span><input type="text" class="KonsoleHelpMsg"/></pre>`;
+    }
+    // this.elem.append(this.konsoleSettings.konsoleHelpMsg());
+    // setTimeout(hideMSg, 1000);
+    // const hide = () => this.elem.removeClass(this.konsoleSettings.konsoleHelpMsg());
     konsoleLineMarkup() {
         return `<pre class="KonsoleLine"><span class="KonsolePrefix">${this.prefix}</span><span class="KonsoleLineText"></span></pre>`;
     }
-
     konsoleParaMarkup() {
         return `<pre class="KonsolePara"><span class="KonsoleParaText"></span></pre>`;
     }
@@ -20,6 +26,7 @@ class KonsoleSettings {
         return `<pre><ul class="KonsoleChoice">${lis}</ul></pre>`;
     }
 }
+$('.KonsoleLineText').autofocus;
 
 class Kommand {
     name;
@@ -39,6 +46,7 @@ class Konsole {
     konsoleSettings = undefined;
 
     elem = undefined;
+    helperMsg = undefined;
 
     kommands = [];
 
@@ -50,12 +58,13 @@ class Konsole {
         this.elem = $(selector);
 
         if (!this.elem.length) {
-            console.error(`element`, selector, "wasnt found.");
+            console.error(`element`, selector, "wasn't found.");
             return;
         }
 
         this.elem.addClass("Konsole");
         this.elem.attr("tabindex", "0");
+
 
         // Prevent browser from scrolling when pressing arrow keys or space bar
         window.addEventListener("keydown", function (e) {
@@ -75,7 +84,7 @@ class Konsole {
 
         // Automatically Scroll to the bottom when new child is added
         const observer = new MutationObserver((mutationsList, observer) => {
-            // console.log(mutationsList);
+            console.log(mutationsList);
             for (const mutation of mutationsList) {
                 if (mutation.type === 'childList') {
                     // console.log('A child node has been added or removed.', mutation.addedNodes.);
@@ -123,17 +132,21 @@ class Konsole {
     }
 
     awaitKommand() {
+        // this.helperMsg.append(this.konsoleSettings.konsoleHelpMsg());
+        // const hideMsg = () => this.helperMsg = undefined;
+        // setTimeout(hideMsg, 1000);
         this.elem.append(this.konsoleSettings.konsoleLineMarkup());
-
-        $("body").off("keydown").keydown((e) => {
+        $("#Console").off("keydown").keydown((e) => {
 
             // cancel if other elements like form inputs are focused
             // if(document.activeElement != document.body || !this.elem.hasClass("active")) return;
             if (!this.elem.is(":focus")) return;
 
-            console.log(e.code);
+            // console.log(e.code);
+
 
             let lastLine = $(".KonsoleLine:last span.KonsoleLineText");
+
 
             if (this.validInput.includes(e.key)) {
                 lastLine.text(lastLine.text() + e.key)
@@ -146,12 +159,14 @@ class Konsole {
 
                 // trim and replace multiple spaces with only a single one
                 let cl = lastLine.text().trim().replace(/  +/g, "");
+                console.log("🚀 ~ file: konsole.js ~ line 165 ~ Konsole ~ $ ~ cl", cl)
 
                 let command = "";
                 let arg = "";
 
-                if (cl.indexOf(" ") == -1)
+                if (cl.indexOf(" ") == -1) {
                     command = cl;
+                }
                 else {
                     command = cl.substr(0, cl.indexOf(" "));
                     arg = cl.substr(cl.indexOf(" ") + 1);
@@ -166,21 +181,21 @@ class Konsole {
                         this.awaitKommand();
                     })
                 }
-                else if (e.code === "ArrowUp") {
-                    console.log(lastLine.text(lastLine.text() + e.key));
-                }
                 else {
                     this.print("invalid command.").then(() => {
                         this.awaitKommand();
                     });
                 }
-
             }
+
+
         });
     }
 
     scrollToBottom() {
-        this.elem[0].scrollTop = this.elem[0].scrollHeight;
+
+        // this.elem[0].scrollTop = this.elem[0].scrollHeight;
+        document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
     }
 
     print(...texts) {
@@ -268,48 +283,48 @@ class Konsole {
         });
     }
 
-    async choice(question, choices) {
-        await this.print(question);
+    // async choice(question, choices) {
+    //     await this.print(question);
 
-        let lis = "";
-        for (let i = 0; i < choices.length; i++) {
-            const choice = choices[i];
+    //     let lis = "";
+    //     for (let i = 0; i < choices.length; i++) {
+    //         const choice = choices[i];
 
-            lis += `<li ${i == 0 ? "class='active'" : ""}>${choice}</li>`;
-        }
+    //         lis += `<li ${i == 0 ? "class='active'" : ""}>${choice}</li>`;
+    //     }
 
-        this.elem.append(this.konsoleSettings.konsoleChoiceMarkup(lis));
+    //     this.elem.append(this.konsoleSettings.konsoleChoiceMarkup(lis));
 
 
-        return new Promise((resolve, reject) => {
-            $("body").off("keydown").keydown((e) => {
+    //     return new Promise((resolve, reject) => {
+    //         $("body").off("keydown").keydown((e) => {
 
-                const lastChoices = $("ul.KonsoleChoice:last");
+    //             const lastChoices = $("ul.KonsoleChoice:last");
 
-                if (e.code === "ArrowDown") {
-                    let nextLiIndex = $(lastChoices).children(".active").index() + 1;
+    //             if (e.code === "ArrowDown") {
+    //                 let nextLiIndex = $(lastChoices).children(".active").index() + 1;
 
-                    if (nextLiIndex >= $(lastChoices).children().length) nextLiIndex = 0;
+    //                 if (nextLiIndex >= $(lastChoices).children().length) nextLiIndex = 0;
 
-                    $(lastChoices).children().removeClass("active");
+    //                 $(lastChoices).children().removeClass("active");
 
-                    $($(lastChoices).children().get(nextLiIndex)).addClass("active");
-                }
-                else if (e.code === "ArrowUp") {
-                    let nextLiIndex = $(lastChoices).children(".active").index() - 1;
+    //                 $($(lastChoices).children().get(nextLiIndex)).addClass("active");
+    //             }
+    //             else if (e.code === "ArrowUp") {
+    //                 let nextLiIndex = $(lastChoices).children(".active").index() - 1;
 
-                    if (nextLiIndex < 0)
-                        nextLiIndex = $(lastChoices).children().length - 1;
+    //                 if (nextLiIndex < 0)
+    //                     nextLiIndex = $(lastChoices).children().length - 1;
 
-                    $(lastChoices).children().removeClass("active");
+    //                 $(lastChoices).children().removeClass("active");
 
-                    $($(lastChoices).children().get(nextLiIndex)).addClass("active");
-                }
-                else if (e.code === "Enter") {
-                    $("body").off("keydown");
-                    resolve($(lastChoices).children(".active").text());
-                }
-            });
-        });
-    }
-};
+    //                 $($(lastChoices).children().get(nextLiIndex)).addClass("active");
+    //             }
+    //             else if (e.code === "Enter") {
+    //                 $("body").off("keydown");
+    //                 resolve($(lastChoices).children(".active").text());
+    //             }
+    //         });
+    //     });
+    // }
+}; 
