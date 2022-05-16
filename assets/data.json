@@ -1,0 +1,153 @@
+{
+    "profile": [
+        {
+            "first": "Hafiz Muhammad Waqar",
+            "last": "Khan",
+            "name": "Waqar Khan",
+            "designation": "Software Developer",
+            "address": "Lahore, Pakistan",
+            "dob": "30 Oct,2000",
+            "email": "hwaqr@outlook.com",
+            "phone": "+92 3356729366",
+            "about": " I'm a web developer with experience in Angular and WordPress. I look forward to learning new technologies and I have a good understanding of Web Development with Angular and Wordpress. I’ve performed theme integration in Angular."
+        }
+    ],
+    "portfolioData": [
+        {
+            "favicon": "https://cdn.discordapp.com/attachments/975098867769028678/975100559071785030/Perspective-V-Logo.png",
+            "image_url_back": "https://cdn.discordapp.com/attachments/975098867769028678/975100753939136562/me.jpg",
+            "image_url": "https://cdn.discordapp.com/attachments/695838950597722205/746773670399311922/Profile_pic_1.png"
+        }
+    ],
+    "links": [
+        {
+            "name": "Skype",
+            "url": "https://join.skype.com/invite/pd9swoskA8N0"
+        },
+        {
+            "name": "Linkedin",
+            "url": "https://www.linkedin.com/in/hafiz-waqar-khan/"
+        },
+        {
+            "name": "GitHub",
+            "url": "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://github.com/HWaqarKhan"
+        }
+    ],
+    "education_history": [
+        {
+            "name": "Govt. Islamia College Civil Lines",
+            "from": "2016",
+            "to": "2018",
+            "description": "Metric"
+        },
+        {
+            "name": "Govt. Islamia College Civil Lines",
+            "from": "2018",
+            "to": "2020",
+            "description": "Intermediate"
+        },
+        {
+            "name": "Virtual University Of Pakistan",
+            "from": "2021",
+            "to": "continue",
+            "description": "Bachelor Degree Of Computer Science"
+        }
+    ],
+    "skills": [
+        {
+            "id": "html",
+            "name": "HTML5",
+            "score": 100
+        },
+        {
+            "id": "scss",
+            "name": "CSS/SCSS",
+            "score": 80
+        },
+        {
+            "id": "bootstrap",
+            "name": "BootStrap",
+            "score": 80
+        },
+        {
+            "id": "javascript",
+            "name": "JavaScript",
+            "score": 60
+        },
+        {
+            "id": "ts",
+            "name": "TS",
+            "score": 70
+        },
+        {
+            "id": "ng",
+            "name": "Angular",
+            "score": 70
+        },
+        {
+            "id": "csharp",
+            "name": "C#",
+            "score": 40
+        }
+    ],
+    "languages": [
+        {
+            "name": "Urdu",
+            "level": "C2"
+        },
+        {
+            "name": "English",
+            "level": "B1"
+        }
+    ],
+    "experiences": [
+        {
+            "designation": "Computer Operator",
+            "company": "Punjab Cooperative Board for Liquidation",
+            "from": "Feb 2022",
+            "to": "continue",
+            "isCurrent": true,
+            "description": ""
+        },
+        {
+            "designation": "Tutor",
+            "company": "Teach Quran-e-Pak",
+            "from": "2016",
+            "to": "continue",
+            "isCurrent": true,
+            "description": "I've been teaching the Holy Quran since 2016 and I've experience the teaching on both National and International levels"
+        }
+    ],
+    "computer_languages": [
+        "C/C++",
+        "Javascript + Typescript",
+        "Dart [planning]",
+        "Rust [planning]"
+    ],
+    "technologies": [
+        {
+            "name": "Web",
+            "items": [
+                "HTML5",
+                "CSS",
+                "BootStrap",
+                "JAVASCRIPT",
+                "Typescript",
+                "Angular",
+                "ASP.NET MVC",
+                "Wordpress"
+            ]
+        },
+        {
+            "name": "Desktop",
+            "items": [
+                "Electron",
+                "Tauri [planning"
+            ]
+        }
+    ]
+}
