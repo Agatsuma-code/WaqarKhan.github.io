@@ -21,21 +21,22 @@
     ],
     "links": [
         {
-            "name": "Skype",
-            "url": "https://join.skype.com/invite/pd9swoskA8N0"
-        },
-        {
             "name": "Linkedin",
             "url": "https://www.linkedin.com/in/hafiz-waqar-khan/"
         },
         {
-            "name": "YouTube",
-            "url": "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
-        },
-        {
             "name": "GitHub",
             "url": "https://github.com/HWaqarKhan"
+        },
+        {
+            "name": "Skype",
+            "url": "https://join.skype.com/invite/pd9swoskA8N0"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
         }
+        
     ],
     "education_history": [
         {
