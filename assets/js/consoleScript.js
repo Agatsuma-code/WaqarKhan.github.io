@@ -74,8 +74,8 @@ function toAnchorTag(text, url) {
 
 $(async () => {
 
-    let mydata = await (await fetch("/assets/data.json")).json()
-    console.log("🚀 ~ file: consoleScript.js ~ line 101 ~ $ ~ mydata", mydata)
+    // let mydata = await (await fetch("/assets/data.json")).json()
+    // console.log("🚀 ~ file: consoleScript.js ~ line 101 ~ $ ~ mydata", mydata)
 
 
     konsole.mcq = (question, choices, correctOption, correctMsg, wrongMsg) => {
