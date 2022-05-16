@@ -49,21 +49,21 @@ let data = {
     ],
     "links": [
 
-        {
-            name: "Skype",
-            url: "https://join.skype.com/invite/pd9swoskA8N0"
+       {
+            "name": "Linkedin",
+            "url": "https://www.linkedin.com/in/hafiz-waqar-khan/"
         },
         {
-            name: "Linkedin",
-            url: "https://www.linkedin.com/in/hafiz-waqar-khan/"
+            "name": "GitHub",
+            "url": "https://github.com/HWaqarKhan"
         },
         {
-            name: "GitHub",
-            url: "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
+            "name": "Skype",
+            "url": "https://join.skype.com/invite/pd9swoskA8N0"
         },
         {
-            name: "YouTube",
-            url: "https://github.com/HWaqarKhan"
+            "name": "YouTube",
+            "url": "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
         }
     ]
 };
