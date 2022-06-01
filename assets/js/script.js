@@ -1,8 +1,4 @@
-var profile;
 $(function () {
-  loader = ".pv-loader-container";
-  $(loader).fadeOut(200)
-  
   const consts = {
     skills: "skills",
     languages: "languages",
@@ -14,7 +10,6 @@ $(function () {
     links: "links",
 
   };
-  
   title = "#title";
   fav = "#fav";
   name = '#name'
@@ -32,7 +27,8 @@ $(function () {
     url: '../assets/data/profile.json',
     method: 'GET',
   }).done(function (data) {
-    profile = data.profile;
+    var profile = data.profile;
+
     // sett profile
     $(title).text(profile.name)
     $(fav).attr("href", profile.favicon)
@@ -60,12 +56,8 @@ $(function () {
     // Portfolio
     $(portfolio).html(RenderList(profile.projects, consts.portfolio))
     // Links
-    $(links).html(RenderList(profile.links, consts.links));
-
-    setTimeout(()=>{$(loader).addClass('hide')},1500);
-    // $(loader).hide()
+    $(links).html(RenderList(profile.links, consts.links))
   }).fail(function (a, b, error) {
-    $(loader).removeClass('hide')
     console.log(error)
   });
 
@@ -203,6 +195,7 @@ $(function () {
     var testimonials = `
     <div class="swiper-slide">
     <div class="row commendation">
+    
     <div class="story mt-5">
     <figure class="story__shape">
     <img src="${e.img}" alt="${e.name}" class="story__image">
@@ -229,7 +222,7 @@ $(function () {
   }
 
   function getLinks(e) {
-    return `<a href="${e.url}" target="_blank" class="${e.name}" title="${e.name}"><i class="${e.icon}"></i></a>`;
+    return `<a href="${e.url}" target="_blank" class="${e.name}"><i class="${e.icon}"></i></a>`;
   }
 
 });
