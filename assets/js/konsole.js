@@ -84,7 +84,7 @@ class Konsole {
 
         // Automatically Scroll to the bottom when new child is added
         const observer = new MutationObserver((mutationsList, observer) => {
-            console.log(mutationsList);
+            // console.log(mutationsList);
             for (const mutation of mutationsList) {
                 if (mutation.type === 'childList') {
                     // console.log('A child node has been added or removed.', mutation.addedNodes.);

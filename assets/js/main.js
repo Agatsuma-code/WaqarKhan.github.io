@@ -178,6 +178,22 @@ document.querySelector('.console').classList.add('hidden');
   //   })
   // }
 
+  new Swiper('.testimonials-swiper', {
+    speed: 600,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+  });
 
   /**
    * Porfolio isotope and filter
@@ -240,6 +256,18 @@ document.querySelector('.console').classList.add('hidden');
   //   }
   // });
 
+  // if (this.enableKeyboardNavigation) {
+  //   $(document).keydown(function (e) {
+  //     var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+  //     switch (key) {
+  //       case 32: // space
+  //         gallery.next();
+  //         e.preventDefault();
+  //         break;
+  //     }
+  //   })
+  // }
+
 })()
 
 
@@ -267,6 +295,7 @@ document.querySelector('.console').classList.add('hidden');
 
 
 
+// About Tabs 
 $(document).ready(function () {
 
   (function ($) {
@@ -288,6 +317,85 @@ $(document).ready(function () {
 
 });
 
+// 2525
+// 12DFBC60AA18F327C0ADE22D465CCF7476DE
+// ce841d7a-6008-4126-afea-fd78a72538c6
+
+const form = document.querySelector('.contact_form');
+function success() {
+  swal({
+    title: "Good job!",
+    text: "Successfully Sent Message!",
+    icon: "success"
+  });
+}
+function error() {
+  swal({
+    title: "Please Try Again!",
+    text: "Something Went wrong!",
+    icon: "success"
+  });
+}
+function sendEmail() {
+  emailjs.init("jZodjXjZwfNf2QSco");
+  var params = {
+    userName: $('.userName').val(),
+    userEmail: $('.sender').val(),
+    subject: $('.senderSubject').val(),
+    message: $('.message').val()
+  }
+  emailjs.send("service_wjphzpa", "template_iwtvq1f", params).then(function (res) {
+    if (res.status == '200') {
+      success()
+    } else {
+      error()
+    }
+  })
+}
+// form.addEventListener('submit', sendEmail)
+// document.addEventListener('keydown', function (e) {
+//   if (e.key === 'Enter') {
+//       sendEmail();
+//   }
+// })
+
+// function sendEmail() {
+//   // e.preventDefault();
+//   const userName = $('.userName').val(),
+//     email = $('.sender').val(),
+//     subject = $('.senderSubject').val(),
+//     msg = $('.message').val();
+//   Email.send({
+//     SecureToken: "604f6a3a-e966-4a37-8706-999a7107d9b8",
+//     To: profile.email,
+//     From: email,
+//     name: userName,
+//     Subject: subject,
+//     Body: msg
+//   }).then(
+
+//     message => {
+//       if (message == 'OK') {
+//         $('.sent-message').show()
+//         setTimeout(() => {
+//           $('.sent-message').hide()
+//         }, 2000);
+//         // alert('Thank you')
+//       } else {
+//         // console.log(send)
+//         // console.error(message);
+//         alert('not send yet', message)
+//       }
+//     },
+//   );
+// }
+
+// form.addEventListener('submit', sendEmail)
+// document.addEventListener('keydown', function (e) {
+//   if (e.key === 'Enter') {
+//       sendEmail();
+//   }
+// })
 
 // $('.counts').each(function () {
 //   $(this).prop('Counter', 0).animate({

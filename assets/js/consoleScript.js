@@ -1,5 +1,4 @@
-"use strict";
-
+let dataa = profile;
 let ks = new KonsoleSettings();
 // ks.ElemSelector = "#Console";
 ks.animatePrint = false;
@@ -9,14 +8,12 @@ let konsole = new Konsole("#Console", ks);
 
 let data = {
     "about": [
-        "I'm Waqar Khan.",
-        `A Programmer.`,
-        `That's it.`,
-        `Try some other commands.`
-    ],
-    "languages": [
-        "C/C++",
-        "Javascript + Typescript",
+        "        I'm Waqar Khan.",
+        `I'm a web developer with experience in  Asp.net Core / Mvc, Angular and WordPress.
+        I’m currently working on Fiverr and Upwork as a freelancer in web development. 
+        I have a good understanding of Web Development with these technologies. I’ve got experience related to theme and API Integration.
+        That's it.,
+        Try some other commands.`
     ],
     "projects": [
         {
@@ -49,7 +46,7 @@ let data = {
     ],
     "links": [
 
-       {
+        {
             "name": "Linkedin",
             "url": "https://www.linkedin.com/in/hafiz-waqar-khan/"
         },
@@ -67,9 +64,6 @@ let data = {
         }
     ]
 };
-
-
-
 function toAnchorTag(text, url) {
     return `<a target='_blank' tabindex="-1" href='${url}'>${text}</a>`;
 }
@@ -80,25 +74,9 @@ $(async () => {
     // console.log("🚀 ~ file: consoleScript.js ~ line 101 ~ $ ~ mydata", mydata)
 
 
-    konsole.mcq = (question, choices, correctOption, correctMsg, wrongMsg) => {
-        return new Promise(async (resolve, reject) => {
-            let selectedChoice = await konsole.choice(question, choices);
-
-            if (selectedChoice == correctOption) {
-                await konsole.print(correctMsg);
-                resolve(true);
-            }
-            else {
-
-                await konsole.print(wrongMsg);
-                resolve(false);
-            }
-        });
-    }
-
     konsole.RegisterKommand(new Kommand("about", "me", null, () => {
         return new Promise((resolve, reject) => {
-            konsole.print(data.about).then(resolve);
+            konsole.print(profile.about).then(resolve);
         });
     }));
 
@@ -139,6 +117,7 @@ $(async () => {
     konsole.RegisterKommand(new Kommand("-".repeat(10), "-".repeat(30), null, null));
 
     konsole.RegisterDefaultKommands();
+
     konsole.RegisterKommand(new Kommand("close", "Close Resume.", null, () => {
         return new Promise((resolve, reject) => {
             window.close();

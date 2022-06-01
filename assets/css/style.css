@@ -59,6 +59,25 @@ h6 {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.pv-loader-container {
+  z-index: 9999;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+
+
+  /* position: fixed; height: 100%; width: 100%; top:0; left: 0; background: #000; z-index:9999; */
+
+
+  cursor: progress;
+  touch-action: none;
+  pointer-events: none;
+
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -440,11 +459,6 @@ section .container {
   margin-bottom: 0;
 }
 
-.resume__image {
-  height: 350px;
-  width: 400px;
-  object-fit: contain;
-}
 
 /*--------------------------------------------------------------
 # Skills
@@ -888,12 +902,12 @@ section .container {
   color: #18d26e;
 }
 
-.contact .php-email-form {
+.contact .contact_form {
   padding: 30px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.contact .php-email-form .error-message {
+.contact .contact_form .error-message {
   display: none;
   background: rgba(255, 255, 255, 0.08);
   background: #ed3c0d;
@@ -902,11 +916,11 @@ section .container {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br+br {
+.contact .contact_form .error-message br+br {
   margin-top: 25px;
 }
 
-.contact .php-email-form .sent-message {
+.contact .contact_form .sent-message {
   display: none;
   background: rgba(255, 255, 255, 0.08);
   background: #18d26e;
@@ -915,14 +929,14 @@ section .container {
   font-weight: 600;
 }
 
-.contact .php-email-form .loading {
+.contact .contact_form .loading {
   display: none;
   background: rgba(255, 255, 255, 0.08);
   text-align: center;
   padding: 15px;
 }
 
-.contact .php-email-form .loading:before {
+.contact .contact_form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -935,8 +949,8 @@ section .container {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+.contact .contact_form input,
+.contact .contact_form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
@@ -946,32 +960,32 @@ section .container {
   color: #fff;
 }
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
+.contact .contact_form input:focus,
+.contact .contact_form textarea:focus {
   background-color: rgba(255, 255, 255, 0.11);
 }
 
-.contact .php-email-form input::-moz-placeholder,
-.contact .php-email-form textarea::-moz-placeholder {
+.contact .contact_form input::-moz-placeholder,
+.contact .contact_form textarea::-moz-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input::placeholder,
-.contact .php-email-form textarea::placeholder {
+.contact .contact_form input::placeholder,
+.contact .contact_form textarea::placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input {
+.contact .contact_form input {
   padding: 10px 15px;
 }
 
-.contact .php-email-form textarea {
+.contact .contact_form textarea {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .contact_form button[type=submit] {
   background: #18d26e;
   border: 0;
   padding: 10px 30px;
@@ -980,7 +994,7 @@ section .container {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .contact_form button[type=submit]:hover {
   background: #15bb62;
 }
 
@@ -1049,6 +1063,14 @@ section .container {
 /*--------------------------------------------------------------
 # Testimonial
 --------------------------------------------------------------*/
+.story__text-link {
+  color: #fff !important;
+}
+
+.story__text-link:hover {
+  color: #18d26e !important;
+}
+
 @media only screen and (min-width: 950px) {
 
   /* original */
@@ -1056,7 +1078,7 @@ section .container {
     width: 80%;
     margin: 0 auto;
     box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
     border-radius: 3px;
     padding: 20px 0px 10px 60px;
     font-size: 16px;
@@ -1142,12 +1164,6 @@ section .container {
     padding: 35px 0 0 0;
   }
 
-
-
-  .carousel-item {
-    min-height: 320px;
-  }
-
   .story__caption {
     position: absolute;
     top: 50%;
@@ -1169,6 +1185,7 @@ section .container {
 
   .identity {
     color: rgba(255, 255, 255, 0.7);
+    text-align: center;
   }
 
   .identity h5 {
@@ -1187,26 +1204,11 @@ section .container {
 
 }
 
-/* Education Style */
-.degree {
-  background-color: #18d26e;
-}
-
-
-/* References Style */
-.card {
-  background-color: rgba(204, 204, 204, 0.1);
-}
-
-.category {
-  margin: 0px;
-}
-
-
 @media only screen and (max-width: 63.30em) {
 
   .story {
     overflow: hidden !important;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .story .story__text {
@@ -1229,21 +1231,56 @@ section .container {
     position: absolute !important;
     z-index: 2 !important;
     border: 6px solid rgba(255, 255, 255, 0.12) !important;
-    top: 60% !important;
+    top: 90% !important;
     left: 15% !important;
   }
 
   @media only screen and (min-width: 768px) {
     .story__image {
-      top: 50% !important;
+      top: 48% !important;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .story__image {
+      top: 60% !important;
+    }
+
+    .identity {
+      text-align: right;
+      margin-right: 5rem !important;
+      margin-top: -5rem;
+      z-index: -10 !important;
+      color: white;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    /* .story__image {
+      top: 67% !important;
+    } */
+
+    .identity {
+      text-align: right;
+      margin-right: 5rem !important;
+      margin-top: -5rem;
+      z-index: -10 !important;
+      color: white;
     }
   }
 
   @media only screen and (max-width: 501px) {
-    .story__image {
-      top: 65% !important;
-    }
+    /* .story__image {
+      top: 75% !important;
+    } */
 
+    .identity {
+      text-align: right;
+      margin-right: 5rem !important;
+      margin-top: -5rem;
+      z-index: -10 !important;
+      color: white;
+    }
   }
 
   @media only screen and (max-width: 434px) {
@@ -1294,11 +1331,17 @@ section .container {
     font-style: italic;
     margin: 0 15px 0 15px;
     padding: 20px 20px 60px 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(24, 26, 27, 0.9);
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
     position: relative;
     border-radius: 6px;
     position: relative;
     z-index: 1;
+  }
+
+  .story__text p {
+    background-color: #fff;
   }
 
   .story__caption {
@@ -1306,11 +1349,46 @@ section .container {
     visibility: hidden;
   }
 
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    visibility: hidden;
+  .identity {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: right;
+    margin-right: 10rem;
   }
+
+  .identity h5 {
+    transform: translateX(15%);
+  }
+
 }
+
+.swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #18d26e;
+}
+
+/* Education Style */
+.degree {
+  background-color: #18d26e;
+}
+
+
+/* References Style */
+.card {
+  background-color: rgba(204, 204, 204, 0.1);
+}
+
+.category {
+  margin: 0px;
+}
+
+
+
 
 
 
@@ -1534,4 +1612,116 @@ pre.KonsolePara {
 
 .current {
   background: #0eb95ec5 !important;
+}
+
+.download {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  z-index: 9999;
+}
+
+.download>button {
+  background-color: #18d26e !important;
+  font-size: 30px;
+  border-radius: 50%;
+  border: none;
+  transition: all 500ms ease;
+}
+
+.download:hover button {
+  background: transparent !important;
+  font-size: 40px;
+  color: #18d26e !important;
+  border: none !important;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# experience
+--------------------------------------------------------------*/
+.experiences .experience-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.experiences .experience-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.experiences .experience-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #18d26e;
+  margin-bottom: 10px;
+}
+
+.experiences .experience-item h5 {
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.experiences .experience-item ul {
+  padding-left: 20px;
+}
+
+.experiences .experience-item ul li {
+  padding-bottom: 10px;
+}
+
+.experiences .experience-item:last-child {
+  padding-bottom: 0;
+}
+
+.experiences .experience-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #18d26e;
+  border: 2px solid #18d26e;
+}
+
+.hide {
+  display: none !important
+}
+
+
+
+/* Sweet Alert */
+.swal-modal {
+  background-color: #16181a !important;
+}
+
+.swal-title,
+swal-text {
+  color: white !important;
+}
+
+.swal-icon--success::after,
+.swal-icon--success::before,
+.swal-icon--success__hide-corners {
+  background: transparent !important;
+}
+
+.swal-button {
+  background: #18d26e !important;
 }

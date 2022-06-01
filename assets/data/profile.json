@@ -1,0 +1,203 @@
+{
+    "profile": {
+        "surname": "Hafiz Muhammad",
+        "firstName": "Waqar",
+        "lastName": "Khan",
+        "fullName": "Hafiz Muhammad Waqar Khan",
+        "name": "Waqar Khan",
+        "tagLine": "Believe in long term relation",
+        "designation": "Web Developer",
+        "address": "Lahore, Pakistan",
+        "dob": "30 Oct,2000",
+        "email": "hafizwaqarkhan786@gmail.com",
+        "phone": "+92 335 6729366",
+        "degree": "Bachelor",
+        "about": "I'm a web developer with experience in  Asp.net Core / Mvc, Angular and WordPress. I’m currently working on Fiverr and Upwork as a freelancer in web development. I have a good understanding of Web Development with these technologies. I’ve got experience related to theme and API Integration.",
+        "favicon": "https://cdn.discordapp.com/attachments/980713019342483486/980713039059886130/unknown.png",
+        "image_url": "https://cdn.discordapp.com/attachments/695838950597722205/746773670399311922/Profile_pic_1.png",
+        "links": [
+            {
+                "name": "twitter",
+                "url": "https://www.linkedin.com/in/hafiz-waqar-khan/",
+                "icon": "bi bi-twitter"
+            },
+            {
+                "name": "gitHub",
+                "url": "https://github.com/HWaqarKhan",
+                "icon": "bi bi-github"
+            },
+            {
+                "name": "skype",
+                "url": "https://join.skype.com/invite/pd9swoskA8N0",
+                "icon": "bi bi-skype"
+            },
+            {
+                "name": "linkedin",
+                "url": "https://www.linkedin.com/in/hafiz-waqar-khan/",
+                "icon": "bi bi-linkedin"
+            },
+            {
+                "name": "youtube",
+                "url": "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1",
+                "icon": "bi bi-youtube"
+            }
+        ],
+        "education_history": [
+            {
+                "institute_name": "Board of Intermediate and Secondary Education",
+                "from": "2016",
+                "to": "2018",
+                "type": "Metric",
+                "degree": "High School Degree",
+                "description": "Completed High School education in 2018 form Board of Intermediate and Secondary Education"
+            },
+            {
+                "institute_name": "Govt. Islamia College Civil Lines",
+                "from": "2018",
+                "to": "2020",
+                "type": "Intermediate in Computer Sciences",
+                "degree": "Intermediate Degree",
+                "description": "Completed college education in 2020 form Govt. Islamia College Civil Lines."
+            },
+            {
+                "institute_name": "Virtual University Of Pakistan",
+                "from": "2021",
+                "to": "continue",
+                "type": "Bachelor Degree Of Computer Science",
+                "degree": "Bachelor's Degree",
+                "description": "Doing bachelor's degree in Computer Science form Virtual University of Pakistan."
+            }
+        ],
+        "skills": [
+            {
+                "id": "html",
+                "name": "HTML5",
+                "score": 100
+            },
+            {
+                "id": "scss",
+                "name": "CSS/SCSS",
+                "score": 80
+            },
+            {
+                "id": "bootstrap",
+                "name": "BootStrap",
+                "score": 80
+            },
+            {
+                "id": "javascript",
+                "name": "JavaScript",
+                "score": 60
+            },
+            {
+                "id": "ts",
+                "name": "TS",
+                "score": 70
+            },
+            {
+                "id": "ng",
+                "name": "Angular",
+                "score": 70
+            },
+            {
+                "id": "csharp",
+                "name": "C#",
+                "score": 40
+            }
+        ],
+        "languages": [
+            {
+                "name": "Urdu",
+                "level": "C2"
+            },
+            {
+                "name": "English",
+                "level": "B1"
+            }
+        ],
+        "experiences": [
+            {
+                "company": "Self Learning",
+                "from": "2021",
+                "to": "2022",
+                "isCurrent": false,
+                "designation": "Web Developer / Quality Insurance",
+                "description": "Worked as an Angular developer  as well as a QA. The project was related to Account Management System which was based on a Subscription Model. In this project I worked under a mentor who was kind enough to give me his valuable time for my growth.<br> <b>Tools:</b> <br> Front-end: Html, Scss, Bootstrap <br> Back-end: Asp.Net Core Web Api, <br> Authentication: Jason Web Tokens(JWT) <br> Framework: Angular <br> 3rd Party Modules: Syncfusion"
+            }
+        ],
+        "computer_languages": [
+            "C/C++",
+            "Javascript + Typescript",
+            "Dart [planning]",
+            "Rust [planning]"
+        ],
+        "technologies": [
+            {
+                "name": "Web",
+                "items": [
+                    "HTML5",
+                    "CSS",
+                    "BootStrap",
+                    "JAVASCRIPT",
+                    "Typescript",
+                    "Angular",
+                    "ASP.NET MVC",
+                    "Wordpress"
+                ]
+            },
+            {
+                "name": "Desktop",
+                "items": [
+                    "Electron",
+                    "Tauri [planning"
+                ]
+            }
+        ],
+        "projects": [
+            {
+                "name": "Resume",
+                "img": "assets/img/portfolio/portfolio-1.jpg",
+                "tech": "HTML Css JavaScript",
+                "url": "https://hwaqarkhan.github.io/"
+            }
+        ],
+        "testimonial": [
+            {
+                "name": "Usman Khan",
+                "designation": "Web Developer",
+                "link": "https://www.upwork.com/freelancers/~012ad4fc48eef56697",
+                "img": "../../assets/img/testimonials/Usman-Khan.jpg",
+                "endorsement": "Waqar and I both worked on a Account Management System in which we used angular and Asp.Net Core as backend api. We used JWT (Jason Web Tokens) for authentication and followed the N-Layerd Architecture along with Unit of Work and Repository patterns."
+            },
+            {
+                "name": "Usman Khan",
+                "designation": "Web Developer",
+                "link": "https://www.upwork.com/freelancers/~012ad4fc48eef56697",
+                "img": "../../assets/img/testimonials/Usman-Khan.jpg",
+                "endorsement": "Waqar and I both worked on a Account Management System in which we used angular and Asp.Net Core as backend api. We used JWT (Jason Web Tokens) for authentication and followed the N-Layerd Architecture along with Unit of Work and Repository patterns."
+            }
+        ],
+        "progress": [
+            {
+                "name": "Happy Client",
+                "count": "20",
+                "icon": "bi bi-emoji-smile"
+            },
+            {
+                "name": "Projects",
+                "count": "20",
+                "icon": "bi bi-journal-richtext"
+            },
+            {
+                "name": "Hours Of Support",
+                "count": "1463",
+                "icon": "bi bi-headset"
+            },
+            {
+                "name": "Awards",
+                "count": "26",
+                "icon": "bi bi-award"
+            }
+        ]
+    }
+}
