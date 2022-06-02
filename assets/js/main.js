@@ -1,4 +1,4 @@
-var profile;
+
 document.querySelector('.console').classList.add('hidden');
 (function () {
   "use strict";
@@ -103,7 +103,7 @@ document.querySelector('.console').classList.add('hidden');
   }, true)
 
   new Swiper('.testimonials-swiper', {
-    speed: 400,
+    speed: 3000,
     slidesPerView: 1,
     spaceBetween: 30,
     grabCursor: true,
@@ -112,7 +112,7 @@ document.querySelector('.console').classList.add('hidden');
     watchSlidesProgress: true,
     loopFillGroupWithBlank: true,
     autoplay: {
-      delay: 1000,
+      delay: 3000,
       disableOnInteraction: true,
       loop:true,
     },
@@ -179,8 +179,8 @@ function sendEmail() {
     subject: $('.senderSubject').val(),
     message: $('.message').val()
   }
+  form.reset();
   emailjs.send("service_wjphzpa", "template_iwtvq1f", params).then(function (res) {
-    form.reset();
     if (res.status == '200') {
       success()
     } else {

@@ -1,4 +1,4 @@
-
+var profile;
 $(function () {
   const consts = {
     skills: "skills",

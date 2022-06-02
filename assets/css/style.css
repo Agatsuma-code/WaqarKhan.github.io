@@ -1067,6 +1067,10 @@ section .container {
     /* margin-top: 10px; */
   }
 
+  .swiper-button-next, .swiper-button-prev {
+    color: rgba(255, 255, 255, 0.5);
+
+  }
 
   .story>* {
     transform: skewX(12deg);
@@ -1630,12 +1634,14 @@ pre.KonsolePara {
   margin-bottom: 20px;
   color: #fff;
 }
+
 .experiences .experience-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
   border-left: 2px solid rgba(255, 255, 255, 0.2);
   position: relative;
 }
+
 .experiences .experience-item h4 {
   line-height: 18px;
   font-size: 18px;
@@ -1645,6 +1651,7 @@ pre.KonsolePara {
   color: #18d26e;
   margin-bottom: 10px;
 }
+
 .experiences .experience-item h5 {
   font-size: 16px;
   background: rgba(255, 255, 255, 0.15);
@@ -1653,15 +1660,19 @@ pre.KonsolePara {
   font-weight: 600;
   margin-bottom: 10px;
 }
+
 .experiences .experience-item ul {
   padding-left: 20px;
 }
+
 .experiences .experience-item ul li {
   padding-bottom: 10px;
 }
+
 .experiences .experience-item:last-child {
   padding-bottom: 0;
 }
+
 .experiences .experience-item::before {
   content: "";
   position: absolute;

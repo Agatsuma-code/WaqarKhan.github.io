@@ -1,7 +1,4 @@
-// "use strict";
-let consoleData = profile;
-console.log("🚀 ~ file: consoleScript.js ~ line 3 ~ profile", profile)
-console.log("🚀 ~ file: consoleScript.js ~ line 3 ~ consoleData", consoleData)
+"use strict";
 let ks = new KonsoleSettings();
 // ks.ElemSelector = "#Console";
 ks.animatePrint = false;
