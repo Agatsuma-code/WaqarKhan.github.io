@@ -1,3 +1,4 @@
+
 $(function () {
   const consts = {
     skills: "skills",
@@ -27,7 +28,7 @@ $(function () {
     url: '../assets/data/profile.json',
     method: 'GET',
   }).done(function (data) {
-    var profile = data.profile;
+    profile = data.profile;
 
     // sett profile
     $(title).text(profile.name)

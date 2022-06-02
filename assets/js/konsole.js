@@ -12,9 +12,6 @@ class KonsoleSettings {
     konsoleHelpMsg() {
         return `<pre class="KonsoleHelpMsg"><span class="KonsoleHelpMsg">${this.message}</span><input type="text" class="KonsoleHelpMsg"/></pre>`;
     }
-    // this.elem.append(this.konsoleSettings.konsoleHelpMsg());
-    // setTimeout(hideMSg, 1000);
-    // const hide = () => this.elem.removeClass(this.konsoleSettings.konsoleHelpMsg());
     konsoleLineMarkup() {
         return `<pre class="KonsoleLine"><span class="KonsolePrefix">${this.prefix}</span><span class="KonsoleLineText"></span></pre>`;
     }
@@ -67,11 +64,11 @@ class Konsole {
 
 
         // Prevent browser from scrolling when pressing arrow keys or space bar
-        window.addEventListener("keydown", function (e) {
-            if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
-                e.preventDefault();
-            }
-        }, false);
+        // window.addEventListener("keydown", function (e) {
+        //     if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+        //         e.preventDefault();
+        //     }
+        // }, false);
 
         // Prevent enter key from opening a link after it is focused once by clicking on it
         $(this.elem).on('keydown', "a", function (e) {

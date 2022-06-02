@@ -1,3 +1,4 @@
+var profile;
 document.querySelector('.console').classList.add('hidden');
 (function () {
   "use strict";
@@ -102,19 +103,32 @@ document.querySelector('.console').classList.add('hidden');
   }, true)
 
   new Swiper('.testimonials-swiper', {
-    speed: 600,
+    speed: 400,
     slidesPerView: 1,
     spaceBetween: 30,
     grabCursor: true,
     loop: true,
+    freeMode: true,
+    watchSlidesProgress: true,
+    loopFillGroupWithBlank: true,
     autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
+      delay: 1000,
+      disableOnInteraction: true,
+      loop:true,
     },
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: "auto",
+    touchRatio: 0.2,
+    loopedSlides: 4,
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
 })()
