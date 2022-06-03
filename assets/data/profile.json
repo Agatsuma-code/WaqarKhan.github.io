@@ -44,28 +44,25 @@
         ],
         "education_history": [
             {
-                "institute_name": "Board of Intermediate and Secondary Education",
+                "institute_name": "BISE Lahore",
                 "from": "2016",
                 "to": "2018",
                 "type": "Metric",
-                "degree": "High School Degree",
-                "description": "Completed High School education in 2018 form Board of Intermediate and Secondary Education"
+                "degree": "High School Degree"
             },
             {
                 "institute_name": "Govt. Islamia College Civil Lines",
-                "from": "Apr 2018",
-                "to": "Aug 2020",
-                "type": "Intermediate in Computer Sciences",
-                "degree": "Intermediate Degree",
-                "description": "Completed college education in 2020 form Govt. Islamia College Civil Lines."
+                "from": "2018",
+                "to": "2020",
+                "type": "Computer Sciences (ICS)",
+                "degree": "Intermediate Degree"
             },
             {
                 "institute_name": "Virtual University Of Pakistan",
-                "from": "Nov 2021",
+                "from": "2021",
                 "to": "Continue",
-                "type": "Bachelor Degree Of Computer Science",
-                "degree": "Bachelor's Degree",
-                "description": "Doing bachelor's degree in Computer Science form Virtual University of Pakistan."
+                "type": "Computer Science (BSCS)",
+                "degree": "Bachelor's Degree"
             }
         ],
         "skills": [

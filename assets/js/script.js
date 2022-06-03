@@ -167,25 +167,25 @@ $(function () {
 
   function getEducationTemplate(e) {
 
-    var education = `<div class="card">
+    var education = `<div class="card col-lg-6 col-md-12 mb-3">
                     <div class="row education">
-                      <div class="col-md-3 degree" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                      <div class="col-md-4 degree" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                         <div class="card-body cc-education-header">
                           <p>${e.from} - ${e.to}</p>
-                          <div class="h5">${e.degree}</div>
                         </div>
                       </div>
-                      <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                      <div class="col-md-8" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                         <div class="card-body">
+                        <div class="h5">${e.degree}</div>
                         <div class="h5">${e.type}</div>
                         <p class="category">${e.institute_name}</p>
-                        <p>${e.description}</p>
-                      </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>`
-
+                        </div>
+                        </div>
+                        </div>
+                        </div>`
+                        
+                        // <p>${e.description}</p>
     return education;
   }
 
@@ -222,8 +222,8 @@ $(function () {
     return proExperience;
   }
   function getCertificationTemplate(e) {
-    var cert = `<div class="row">
-    <div class="col-lg-8 col-md-12 m-auto">
+    var cert = `
+    <div class="col-lg-6 col-md-12 m-auto">
       <div class="icon-box mb-1">
       <img class="me-4" src="${e.img}" alt="${e.name}" width="50" height="50">
       <h3 class="me-5">${e.name}</h3>
@@ -231,7 +231,6 @@ $(function () {
       <p class="mt-auto mb-auto" >${e.source} </p>
       </a>
       </div>
-    </div>
   </div>`
     return cert;
   }
