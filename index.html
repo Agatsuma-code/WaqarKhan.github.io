@@ -11,7 +11,8 @@
 
   <meta name="title" content="Waqar Khan's Resume">
   <meta name="description" content="Waqar Khan's CV Portfolio">
-  <meta name="keywords" content="Resume, Console, Portfolio, Waqar khan, CV, JavaScript, WK, wk, Hafiz Muhammad Waqar Khan, Muhammad Waqar Khan, Hafiz Waqar Khan, web developer,Wordpress, freelancer, fiverr, upwork , linkedin, hubstaff, github, youtube, twitter">
+  <meta name="keywords"
+    content="Resume, Console, Portfolio, Waqar khan, CV, JavaScript, WK, wk, Hafiz Muhammad Waqar Khan, Muhammad Waqar Khan, Hafiz Waqar Khan, web developer,Wordpress, freelancer, fiverr, upwork , linkedin, hubstaff, github, youtube, twitter">
   <meta name="robots" content="index, follow">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="language" content="English">
@@ -62,7 +63,7 @@
   <!-- End Header -->
 
   <!-- ======= About Section ======= -->
-  <section id="about" class="about">  
+  <section id="about" class="about">
 
     <div class="tab">
 
@@ -71,11 +72,13 @@
         <li><a href="#">Skills</a></li>
         <li><a href="#">Education</a></li>
         <li><a href="#">Experience</a></li>
+        <li><a href="#">Certifications</a></li>
       </ul>
       <!-- / tabs -->
 
       <div class="container tab_content">
 
+        <!-- About Tab -->
         <div class="tabs_item">
           <div id="about" class="tab-item">
             <div class="about-me ">
@@ -123,7 +126,7 @@
 
           </div>
         </div>
-
+        <!-- Skill Tab -->
         <div class="tabs_item">
           <div id="skills" class="skills tab-item">
             <div class="section-title">
@@ -132,7 +135,7 @@
             <div class="row skills-content" id="skills_data"></div>
           </div>
         </div>
-
+        <!-- Education Tab -->
         <div class="tabs_item">
           <div id="education" class="section ">
             <div class=" container-fluid cc-education">
@@ -145,7 +148,7 @@
           </div>
         </div>
 
-
+        <!-- Experience Tab -->
         <div class="tabs_item">
           <div id="experience" class="section ">
             <div class=" container-fluid cc-education">
@@ -153,14 +156,14 @@
                 <h2>Experience</h2>
               </div>
               <div class="experiences">
-                
+
               </div>
             </div>
           </div>
 
 
 
-<!-- <div class="experience-item">
+          <!-- <div class="experience-item">
                   <h4>Developer</h4>
                   <h5>2019 Present</h5>
                   <p><em>Company</em></p>
@@ -173,7 +176,21 @@
                   </p>
                 </div> -->
 
-        </div> <!-- / tab_content -->
+        </div>
+        <!-- Certifications Tab -->
+        <div class="tabs_item">
+          <div id="certification" class="interests section ">
+            <div class=" container-fluid cc-education">
+              <div class="section-title">
+                <h2>Certifications</h2>
+              </div>
+              <div id="certifications">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- / tab_content -->
       </div>
 
   </section>
@@ -260,14 +277,17 @@
         <form action="javascript:sendEmail()" method="post" class="contact_form mt-4">
           <div class="row">
             <div class="col-md-6 form-group">
-              <input type="text" name="name" class="form-control userName" id="userName" placeholder="Your Name" required>
+              <input type="text" name="name" class="form-control userName" id="userName" placeholder="Your Name"
+                required>
             </div>
             <div class="col-md-6 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control sender" name="email" id="sender" placeholder="Your Email" required>
+              <input type="email" class="form-control sender" name="email" id="sender" placeholder="Your Email"
+                required>
             </div>
           </div>
           <div class="form-group mt-3">
-            <input type="text" class="form-control senderSubject" name="subject" id="senderSubject" placeholder="Subject" required>
+            <input type="text" class="form-control senderSubject" name="subject" id="senderSubject"
+              placeholder="Subject" required>
           </div>
           <div class="form-group mt-3">
             <textarea class="form-control message" id="message" rows="5" required></textarea>
@@ -277,24 +297,74 @@
 
       </div>
   </section><!-- End Contact Section -->
-<!-- 
-  <div id="download">
-    <button class="btn btn-success" title="Download PDF"><i class="bi bi bi-arrow-90deg-down"></i></button>
-  </div> -->
+
+  <!-- make PDF button -->
+  <div id="download" class="download border-0">
+    <button class="btn btn-success" title="Download PDF" id="gPDF"><i
+        class="bi bi bi-arrow-90deg-down"></i></button>
+  </div>
+
+  <!--#region pdf html  -->
+  <div class="row invisible d-none" id="pdf">
+    <div class="col-12">
+      <h1 class="username_pdf"></h1>
+    </div>
+    <div class="col-12">
+      <p class="address_Pdf"></p>
+    </div>
+    <div class="col-6">
+      <p class="mail_pdf"></p>
+    </div>
+    <div class="col-6">
+      <p class="mobileNumber_pdf"></p>
+    </div>
+    <div class="col-12">
+      <a class="linkedIn_pdf"></a>
+    </div>
+    <div class="col-12">
+      <h1>Summary</h1>
+      <p class="about_pdf"></p>
+    </div>
+    <div class="col-12">
+      <h1>Skills</h1>
+      <ul class="skill_pdf">
+      </ul>
+    </div>
+    <div class="col-12">
+      <h1>Education</h1>
+      <ul class="education_pdf"></ul>
+    </div>
+    <!-- <div class="col-12">
+      <div class="space"></div>
+    </div> -->
+    <div class="col-12">
+      <h1>Experiences</h1>
+      <ul class="experience_pdf"></ul>
+    </div>
+    <div class="col-12">
+      <h1>Certifications</h1>
+      <ul class="certification_pdf"></ul>
+    </div>
+  </div>
+  <!--#endregion pdf html  -->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <!-- Vendor JS Files -->
   <script src="./assets/js/jquery-3.6.0.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="./assets/js/konsole.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="./assets/js/konsole.js"></script>
   <script src="assets/js/profile.js"></script>
 
 

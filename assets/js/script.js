@@ -1,10 +1,14 @@
+// window.jsPDF = window.jspdf.jsPDF;
 var profile;
+target = "_blank";
+var doc = new jsPDF('p', 'pt', 'legal');
 $(function () {
   const consts = {
     skills: "skills",
     languages: "languages",
     experiences: "experiences",
     education: "education",
+    certification: "certification",
     portfolio: "portfolio",
     progress: "progress",
     testimonial: "testimonial",
@@ -17,6 +21,7 @@ $(function () {
   skills = "#skills_data";
   education = "#education_history";
   exps = ".experiences";
+  cert = "#certifications";
   portfolio = ".projects";
   progress = "#progress";
   testimonial = ".swiper-wrapper";
@@ -30,6 +35,24 @@ $(function () {
   }).done(function (data) {
     profile = data.profile;
 
+    // var doc = new jsPDF({
+    //   // orientation: 'landscape',
+    //   // unit: 'in',
+    //   // format: [4, 2]
+    // })
+
+    // doc.text('Hello world!', 50, 10)
+    // doc.save('two-by-four.pdf')
+    // profile.forEach(function (p, i) {
+    //   doc.text(50, 10 + (i * 10),
+    //     "Summary :" + p.about
+    //   );
+    //   doc.save('CV.pdf')
+    // })
+    // Object.entries(profile).forEach(function(p){
+    //   const [key, value] = p;
+    //    console.log(key, value);
+    // })
     // sett profile
     $(title).text(profile.name)
     $(fav).attr("href", profile.favicon)
@@ -51,6 +74,8 @@ $(function () {
     $(exps).html(RenderList(profile.experiences, consts.experiences))
     // education 
     $(education).html(RenderList(profile.education_history, consts.education))
+    // certification 
+    $(cert).html(RenderList(profile.certifications, consts.certification))
     // Testimonial
     $(progress).html(RenderList(profile.progress, consts.progress))
     $(testimonial).html(RenderList(profile.testimonial, consts.testimonial))
@@ -58,6 +83,39 @@ $(function () {
     $(portfolio).html(RenderList(profile.projects, consts.portfolio))
     // Links
     $(links).html(RenderList(profile.links, consts.links))
+
+
+    //#region data for pdf file
+    $('.topLevelTitle').append(profile.name);
+    $('.username_pdf').append(profile.name);
+    $('.address_pdf').append(profile.address);
+    $('.mail_pdf').append(profile.email);
+    $('.mobileNumber_pdf').append(profile.phone);
+    var linkedIn = document.querySelector('.linkedIn_pdf');
+    linkedIn.innerHTML = "linkedin.com/in/hafiz-waqar-khan/";
+    linkedIn.href = getPlatformName(profile.links);
+    linkedIn.target = target;
+    var about = $('.about_pdf').append(profile.about);
+    $.each(profile.skills, (i, skill) => $('.skill_pdf').append(`<li>${skill.name}</li>`));
+    $.each(profile.education_history, function (i, edu) { $('.education_pdf').append(`<li>${edu.institute_name}<br>${edu.type}<br>${edu.from} — ${(edu.isCurrent == true ? 'Present' : edu.to)}</li>`); });
+    $.each(profile.experiences, function (i, exp) {
+      // console.log(exp)
+      $('.experience_pdf').append(`
+      <li>
+      ${exp.company}<br>
+      ${exp.designation}<br>
+      ${exp.from} — ${(exp.isCurrent == true ? 'Present' : exp.to)}
+      ${exp.description}<br>
+      </li>`);
+    });
+    $.each(profile.certifications, function (i, cert) {
+      $('.certification_pdf').append(`
+            <li>
+            <b> ${cert.name} </b> - ${cert.source}<br>
+            </li>`);
+    });
+    //#endregion data for pdf file
+
   }).fail(function (a, b, error) {
     console.log(error)
   });
@@ -73,6 +131,9 @@ $(function () {
       }
       if (template === consts.education) {
         res += getEducationTemplate(e);
+      }
+      if (template === consts.certification) {
+        res += getCertificationTemplate(e);
       }
       if (template === consts.portfolio) {
         res += getPortfolios(e);
@@ -160,6 +221,20 @@ $(function () {
     </div>`
     return proExperience;
   }
+  function getCertificationTemplate(e) {
+    var cert = `<div class="row">
+    <div class="col-lg-8 col-md-12 m-auto">
+      <div class="icon-box mb-1">
+      <img class="me-4" src="${e.img}" alt="${e.name}" width="50" height="50">
+      <h3 class="me-5">${e.name}</h3>
+      <a href="${e.url}" target="_blank" class="text-white" title="verified" >
+      <p class="mt-auto mb-auto" >${e.source} </p>
+      </a>
+      </div>
+    </div>
+  </div>`
+    return cert;
+  }
 
   function getPortfolios(e) {
     var projects = `
@@ -227,6 +302,30 @@ $(function () {
   }
 
 });
+
+$(document).on('click', '#gPDF', function () {
+  // doc.text(x, y, "value");
+  doc.splitTextToSize(data.about, 50)
+  // doc.fromHTML($("#pdf").html(), 25, 15);
+  // let pageHeight = doc.internal.pageSize.height;
+
+  // // Before adding new content
+  // y = 400 // Height position of new content
+  // if (y >= pageHeight) {
+  //   doc.addPage();
+  //   y = 0 // Restart height position
+  // }
+  doc.context2d.pageWrapYEnabled = true;
+  doc.fromHTML($("#pdf").html(), 20, 0, {
+    width: 550
+  });
+  doc.save(`${data.fullName}'s CV.pdf`);
+
+  // doc.save(`Waqar Khan's CV.pdf`);
+
+})
+
+getPlatformName = (data) => data[3].url;
 
 
 // fetch('../assets/data/profile.json')

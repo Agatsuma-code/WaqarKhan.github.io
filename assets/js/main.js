@@ -64,14 +64,16 @@ document.querySelector('.console').classList.add('hidden');
         navbarToggle.classList.toggle('bi-x')
       }
       if (this.hash == "#Console") {
-        console.log("🚀 ~ file: main.js ~ line 97 ~ konsole.elem", konsole.elem)
+        // console.log("🚀 ~ file: main.js ~ line 97 ~ konsole.elem", konsole.elem)
         document.querySelector('.console').classList.remove('hidden');
+        // konsole.print("If you don't know how to use it, please type \"help\" to find out commands.")
+        // konsoleSettings.konsoleHelpMsg()
+        konsole.print("If you don't know how to use it, please type \"help\" to find out commands.")
+        konsole.awaitKommand();
         konsole.elem.focus();
       } else {
         document.querySelector('.console').classList.add('hidden');
         konsole.elem.html("");
-        konsole.awaitKommand();
-
       }
 
       if (this.hash == '#header') {
@@ -103,28 +105,22 @@ document.querySelector('.console').classList.add('hidden');
   }, true)
 
   new Swiper('.testimonials-swiper', {
-    speed: 3000,
-    slidesPerView: 1,
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    freeMode: true,
-    watchSlidesProgress: true,
-    loopFillGroupWithBlank: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: true,
-      loop:true,
+    // slidesPerView: 1,
+    // spaceBetween: 30,
+    // loop: true,
+    // rewind: true,
+    effect: "coverflow",
+    mousewheel: true,
+    keyboard: {
+      enabled: true,
     },
-    spaceBetween: 30,
-    centeredSlides: true,
-    loop: true,
-    slidesPerView: "auto",
-    touchRatio: 0.2,
-    loopedSlides: 4,
+    // freeMode:true,
+    grabCursor: true,
     pagination: {
       el: ".swiper-pagination",
+      // type: "progressbar",
       clickable: true,
+      dynamicBullets: true,
     },
     navigation: {
       nextEl: ".swiper-button-next",

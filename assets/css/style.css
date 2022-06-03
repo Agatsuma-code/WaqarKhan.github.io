@@ -32,8 +32,8 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: #35e888;
+a:hover , .icon-box a:hover {
+  color: #35e888 !important;
   text-decoration: none;
 }
 
@@ -1604,21 +1604,24 @@ pre.KonsolePara {
   bottom: 10%;
   right: 5%;
   z-index: 9999;
+  outline: none !important;
 }
 
 .download>button {
   background-color: #18d26e !important;
   font-size: 30px;
   border-radius: 50%;
-  border: none;
+  border: none !important;
+  outline: none !important;
   transition: all 500ms ease;
 }
 
 .download:hover button {
   background: transparent !important;
-  font-size: 40px;
+  font-size: 60px;
   color: #18d26e !important;
   border: none !important;
+  outline: none !important;
 }
 
 

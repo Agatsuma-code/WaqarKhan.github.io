@@ -1,6 +1,6 @@
 // TODO:
 // + refactor lambda functions in event listeners so only our listener is removed when using $0.off("keydown")
-
+let showCommand ;
 "use strict";
 class KonsoleSettings {
     prefix = "T> ";
@@ -10,7 +10,7 @@ class KonsoleSettings {
     message = "If you don't know how to use it, please type \"help\" to find out commands "
 
     konsoleHelpMsg() {
-        return `<pre class="KonsoleHelpMsg"><span class="KonsoleHelpMsg">${this.message}</span><input type="text" class="KonsoleHelpMsg"/></pre>`;
+        return `<pre class="KonsoleHelpMsg"><span class="KonsoleHelpMsg">${this.message}</span></pre>`;
     }
     konsoleLineMarkup() {
         return `<pre class="KonsoleLine"><span class="KonsolePrefix">${this.prefix}</span><span class="KonsoleLineText"></span></pre>`;
@@ -23,7 +23,6 @@ class KonsoleSettings {
         return `<pre><ul class="KonsoleChoice">${lis}</ul></pre>`;
     }
 }
-$('.KonsoleLineText').autofocus;
 
 class Kommand {
     name;
@@ -137,14 +136,17 @@ class Konsole {
 
             // cancel if other elements like form inputs are focused
             // if(document.activeElement != document.body || !this.elem.hasClass("active")) return;
-            if (!this.elem.is(":focus")) return;
+            // if (!this.elem.is(":focus")) return;
 
             // console.log(e.code);
 
 
             let lastLine = $(".KonsoleLine:last span.KonsoleLineText");
 
+            // console.log("🚀 ~ file: konsole.js ~ line 145 ~ Konsole ~ $ ~ lastLine", lastLine)
 
+            let cl;
+            
             if (this.validInput.includes(e.key)) {
                 lastLine.text(lastLine.text() + e.key)
             }
@@ -153,16 +155,22 @@ class Konsole {
             }
             else if (e.code === "Enter") {
                 $("body").off("keydown");
+                // console.log(this.elem.textContent);
 
                 // trim and replace multiple spaces with only a single one
-                let cl = lastLine.text().trim().replace(/  +/g, "");
-                console.log("🚀 ~ file: konsole.js ~ line 165 ~ Konsole ~ $ ~ cl", cl)
-
+                cl = lastLine.text().trim().replace(/  +/g, "");
+                localStorage.setItem("command", cl)
+                showCommand = localStorage.getItem("command")
+                // console.log(localStorage.getItem("command"));
+                // lastLine = localStorage.getItem("command")
                 let command = "";
                 let arg = "";
 
                 if (cl.indexOf(" ") == -1) {
                     command = cl;
+                    // localStorage.setItem("command", command)
+                    // console.log(localStorage.getItem("command"));
+                    // lastLine = localStorage.getItem("command")
                 }
                 else {
                     command = cl.substr(0, cl.indexOf(" "));
@@ -184,7 +192,10 @@ class Konsole {
                     });
                 }
             }
-
+            
+            else if (e.code === "ArrowUp") {
+                $('.KonsoleLineText').text(showCommand)
+            }
 
         });
     }
@@ -201,10 +212,10 @@ class Konsole {
 
         return new Promise((resolve, reject) => {
 
-            if (!texts.join("\n").trim()) {
-                reject("Empty Text.");
-                return;
-            }
+            // if (!texts.join("\n").trim()) {
+            //     reject("Empty Text.");
+            //     return;
+            // }
 
             // Append new Konsole Para Markup
             this.elem.append(this.konsoleSettings.konsoleParaMarkup());
@@ -221,64 +232,66 @@ class Konsole {
             // input in simple text
             const textToPrint = tempHtmlElem.textContent;
 
-            if (this.konsoleSettings.animatePrint) {
-                let i = 0;
-                const lineInter = setInterval(() => {
+            // if (this.konsoleSettings.animatePrint) {
+            //     let i = 0;
+            //     const lineInter = setInterval(() => {
 
-                    LastKonsolePara.text(LastKonsolePara.text() + textToPrint.at(i));
-                    i++;
+            //         LastKonsolePara.text(LastKonsolePara.text() + textToPrint.at(i));
+            //         i++;
 
-                    if (i >= textToPrint.length) {
-                        LastKonsolePara.html(htmlToPrint);
-                        clearInterval(lineInter);
-                        resolve("Printed animately");
-                    }
+            //         if (i >= textToPrint.length) {
+            //             LastKonsolePara.html(htmlToPrint);
+            //             clearInterval(lineInter);
+            //             resolve("Printed animately");
+            //         }
 
-                }, this.konsoleSettings.printLetterInterval);
+            //     }, this.konsoleSettings.printLetterInterval);
 
-                // Skip the animation if user presses space
-                $("body").off("keydown").keydown((e) => {
-                    if (e.code === "Space") {
-                        LastKonsolePara.html(htmlToPrint);
-                        clearInterval(lineInter);
-                        resolve("Printed animately (interrupted)");
-                        $("body").off("keydown");
-                    }
-                });
+            //     // Skip the animation if user presses space
+            //     $("body").off("keydown").keydown((e) => {
+            //         if (e.code === "Space") {
+            //             LastKonsolePara.html(htmlToPrint);
+            //             clearInterval(lineInter);
+            //             resolve("Printed animately (interrupted)");
+            //             $("body").off("keydown");
+            //         }
+            //     });
 
-            }
-            else {
-                LastKonsolePara.html(htmlToPrint);
-                resolve("Printed non-animately");
-            }
+            // }
+            // else {
+            //     LastKonsolePara.html(htmlToPrint);
+            //     resolve("Printed non-animately");
+            // }
+            LastKonsolePara.html(htmlToPrint);
+            resolve("Printed non-animately");
         });
     }
 
-    async input(question) {
-        await this.print(question + "\n");
+    // async input(question) {
+    //     await this.print(question + "\n");
 
-        this.elem.append(this.konsoleSettings.konsoleLineMarkup());
+    //     this.elem.append(this.konsoleSettings.konsoleLineMarkup());
 
-        return new Promise((resolve, reject) => {
-            $("body").off("keydown").keydown((e) => {
-                // console.log(e);
+    //     return new Promise((resolve, reject) => {
+    //         $("body").off("keydown").keydown((e) => {
+    //             // console.log(e);
 
-                const lastKonsoleLineText = $(".KonsoleLine:last .KonsoleLineText");
+    //             const lastKonsoleLineText = $(".KonsoleLine:last .KonsoleLineText");
 
-                if (this.validInput.includes(e.key)) {
-                    lastKonsoleLineText.text(lastKonsoleLineText.text() + e.key);
-                }
-                else if (e.code === "Enter") {
-                    $("body").off("keydown");
-                    resolve(lastKonsoleLineText.text());
-                }
-                else if (e.code === "Backspace") {
-                    lastKonsoleLineText.text(lastKonsoleLineText.text().substr(0, lastKonsoleLineText.text().length - 1));
-                }
+    //             if (this.validInput.includes(e.key)) {
+    //                 lastKonsoleLineText.text(lastKonsoleLineText.text() + e.key);
+    //             }
+    //             else if (e.code === "Enter") {
+    //                 $("body").off("keydown");
+    //                 resolve(lastKonsoleLineText.text());
+    //             }
+    //             else if (e.code === "Backspace") {
+    //                 lastKonsoleLineText.text(lastKonsoleLineText.text().substr(0, lastKonsoleLineText.text().length - 1));
+    //             }
 
-            });
-        });
-    }
+    //         });
+    //     });
+    // }
 
     // async choice(question, choices) {
     //     await this.print(question);
