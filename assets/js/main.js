@@ -37,6 +37,7 @@ document.querySelector('.console').classList.add('hidden');
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
+    // $('#Console').classList.add('hidden');
   })
   /**
    * Scrool with ofset on links with a class name .scrollto
@@ -68,7 +69,7 @@ document.querySelector('.console').classList.add('hidden');
         document.querySelector('.console').classList.remove('hidden');
         // konsole.print("If you don't know how to use it, please type \"help\" to find out commands.")
         // konsoleSettings.konsoleHelpMsg()
-        konsole.print("If you don't know how to use it, please type \"help\" to find out commands.")
+        konsole.print("If you don't know how to use it, please type \"help\" to find out commands.'Mobile Not Supported'")
         konsole.awaitKommand();
         konsole.elem.focus();
       } else {
