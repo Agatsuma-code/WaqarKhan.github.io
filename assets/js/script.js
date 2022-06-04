@@ -55,6 +55,7 @@ $(function () {
     // })
     // sett profile
     $(title).text(profile.name)
+    $('.emailLink').attr("href", `mailto:${profile.email}`)
     $(fav).attr("href", profile.favicon)
     $(name).text(profile.name);
     $('#tagLine').text(profile.tagLine);
@@ -167,16 +168,15 @@ $(function () {
 
   function getEducationTemplate(e) {
 
-    var education = `<div class="card col-lg-6 col-md-12 mb-3">
+    var education = `<div class="card col-lg-5 col-md-12 mx-auto mb-3">
                     <div class="row education">
                       <div class="col-md-4 degree" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                         <div class="card-body cc-education-header">
-                          <p>${e.from} - ${e.to}</p>
+                          <p class="fw-bold d-flex align-content-center">${e.from} - ${e.to}</p>
                         </div>
                       </div>
                       <div class="col-md-8" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                         <div class="card-body">
-                        <div class="h5">${e.degree}</div>
                         <div class="h5">${e.type}</div>
                         <p class="category">${e.institute_name}</p>
                         </div>
@@ -184,8 +184,8 @@ $(function () {
                         </div>
                         </div>
                         </div>`
-                        
-                        // <p>${e.description}</p>
+
+    // <p>${e.description}</p>
     return education;
   }
 

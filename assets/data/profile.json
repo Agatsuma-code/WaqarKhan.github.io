@@ -7,11 +7,11 @@
         "name": "Waqar Khan",
         "tagLine": "Believe in long term relation",
         "designation": "Web Developer",
-        "address": "Lahore, Pakistan",
+        "address": "Lahore District, Punjab, Pakistan",
         "dob": "30 Oct,2000",
-        "email": "hwaqr@outlook.com",
-        "phone": "+92-335-6729366",
-        "degree": "Bachelor",
+        "email": "hwaqrk@outlook.com",
+        "phone": "+92 335 6729366",
+        "degree": "Graduation",
         "about": "I'm a web developer with experience in  Asp.net Core / Mvc, Angular and WordPress. I'm currently working on Fiverr and Upwork as a freelancer in web development. I have a good understanding of Web Development with these technologies. I've got experience related to theme and API Integration.",
         "favicon": "https://cdn.discordapp.com/attachments/980713019342483486/980713039059886130/unknown.png",
         "image_url": "https://cdn.discordapp.com/attachments/695838950597722205/746773670399311922/Profile_pic_1.png",
@@ -47,25 +47,27 @@
                 "institute_name": "BISE Lahore",
                 "from": "2016",
                 "to": "2018",
-                "type": "Metric",
-                "degree": "High School Degree"
+                "type": "Metric"
             },
             {
                 "institute_name": "Govt. Islamia College Civil Lines",
                 "from": "2018",
                 "to": "2020",
-                "type": "Computer Sciences (ICS)",
-                "degree": "Intermediate Degree"
+                "type": "Computer Sciences (ICS)"
             },
             {
                 "institute_name": "Virtual University Of Pakistan",
                 "from": "2021",
                 "to": "Continue",
-                "type": "Computer Science (BSCS)",
-                "degree": "Bachelor's Degree"
+                "type": "Computer Science (BS-CS)"
             }
         ],
         "skills": [
+            {
+                "id": "wordPress",
+                "name": "WordPress",
+                "score": 70
+            },
             {
                 "id": "html",
                 "name": "HTML5",
@@ -84,22 +86,22 @@
             {
                 "id": "javascript",
                 "name": "JavaScript",
-                "score": 60
-            },
-            {
-                "id": "ts",
-                "name": "TS",
                 "score": 70
             },
             {
                 "id": "ng",
                 "name": "Angular",
-                "score": 70
+                "score": 60
             },
             {
                 "id": "csharp",
                 "name": "C#",
-                "score": 40
+                "score": 50
+            },
+            {
+                "id": ".net",
+                "name": "Asp.Net",
+                "score": 50
             }
         ],
         "languages": [
@@ -122,52 +124,48 @@
                 "description": "Worked as an Angular developer  as well as a QA. The project was related to Account Management System which was based on a Subscription Model. In this project I worked under a mentor who was kind enough to give me his valuable time for my growth.<br> <b>Tools:</b> <br> Front-end: Html, Scss, Bootstrap <br> Back-end: Asp.Net Core Web Api, <br> Authentication: Jason Web Tokens(JWT) <br> Framework: Angular <br> 3rd Party Modules: Syncfusion"
             }
         ],
-        "certifications":[
+        "certifications": [
             {
                 "name": "WORDPRESS",
                 "img": "https://cdn.discordapp.com/attachments/980713019342483486/982308199938023454/unknown.png",
                 "source": "DigiSkills",
-                "url":"https://cdn.discordapp.com/attachments/982297780733231124/982309084407668846/unknown.png"
-
+                "url": "https://cdn.discordapp.com/attachments/982297780733231124/982309084407668846/unknown.png"
             },
             {
                 "name": "HTML Essential Training",
                 "img": "https://cdn.discordapp.com/attachments/980713019342483486/982304940900900965/unknown.png",
                 "source": "LinkedIn",
-                "url":"https://www.linkedin.com/learning/certificates/365547b414941b1dd311450f55403c1615c53ef58a492e3e08acc4c922ed344d?trk=share_certificate"
-
+                "url": "https://www.linkedin.com/learning/certificates/365547b414941b1dd311450f55403c1615c53ef58a492e3e08acc4c922ed344d?trk=share_certificate"
             },
             {
                 "name": "CSS Essential Training",
                 "img": "https://cdn.discordapp.com/attachments/980713019342483486/982304940900900965/unknown.png",
                 "source": "LinkedIn",
-                "url":"https://www.linkedin.com/learning/certificates/c1331594249e2526980ebf5f5ea4bdb39efa2f2896add8967264ae589b3cfc31?trk=share_certificate"
-
+                "url": "https://www.linkedin.com/learning/certificates/c1331594249e2526980ebf5f5ea4bdb39efa2f2896add8967264ae589b3cfc31?trk=share_certificate"
             },
             {
                 "name": "JavaScript Essential Training",
                 "img": "https://cdn.discordapp.com/attachments/980713019342483486/982304940900900965/unknown.png",
                 "source": "LinkedIn",
-                "url":"https://www.linkedin.com/learning/certificates/26fdee4176180c2855197c63b3b93a5f35eb4a09c94037cc49d74a63de0c9043?trk=share_certificate"
-
+                "url": "https://www.linkedin.com/learning/certificates/26fdee4176180c2855197c63b3b93a5f35eb4a09c94037cc49d74a63de0c9043?trk=share_certificate"
             },
             {
-                "name": " Programming Foundations: Fundamentals",
+                "name": " Programming Fundamentals",
                 "img": "https://cdn.discordapp.com/attachments/980713019342483486/982304940900900965/unknown.png",
                 "source": "LinkedIn",
-                "url":"https://www.linkedin.com/learning/certificates/30f85824d4c81f64428910c8e3066d037b6426e7106240ccfc65b41ccc9e1155?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_recent_activity_details_shares%3BKD%2BWGxhFSi6sN0oipymiwg%3D%3D"
+                "url": "https://www.linkedin.com/learning/certificates/30f85824d4c81f64428910c8e3066d037b6426e7106240ccfc65b41ccc9e1155?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_recent_activity_details_shares%3BKD%2BWGxhFSi6sN0oipymiwg%3D%3D"
             },
             {
                 "name": " Succeeding in Web Development: Full Stack and Front End",
                 "img": "https://cdn.discordapp.com/attachments/980713019342483486/982304940900900965/unknown.png",
                 "source": "LinkedIn",
-                "url":"https://www.linkedin.com/learning/certificates/22388e144acd4e577b3c002b401db4166fadac1b1a028612a205c451ab5e7454"
+                "url": "https://www.linkedin.com/learning/certificates/22388e144acd4e577b3c002b401db4166fadac1b1a028612a205c451ab5e7454"
             },
             {
                 "name": "Become a Software Developer",
                 "img": "https://cdn.discordapp.com/attachments/980713019342483486/982304940900900965/unknown.png",
                 "source": "LinkedIn",
-                "url":"https://cdn.discordapp.com/attachments/982297780733231124/982298094471364648/unknown.png"
+                "url": "https://cdn.discordapp.com/attachments/982297780733231124/982298094471364648/unknown.png"
             }
         ],
         "computer_languages": [
@@ -200,34 +198,13 @@
         ],
         "projects": [
             {
-                "name": "Resume",
-                "img": "assets/img/portfolio/portfolio-1.jpg",
-                "tech": "HTML Css JavaScript",
-                "url": "https://hwaqarkhan.github.io/"
+                "name": "COCOA",
+                "img": "https://cdn.discordapp.com/attachments/982520374719819777/982521614472183868/unknown.png",
+                "tech": "Angular",
+                "url": ""
             }
         ],
         "testimonial": [
-            {
-                "name": "Usman Khan",
-                "designation": "Web Developer",
-                "link": "https://www.upwork.com/freelancers/~012ad4fc48eef56697",
-                "img": "https://cdn.discordapp.com/attachments/980703312544415796/981604229544288308/Usman-Khan.jpg",
-                "endorsement": "Waqar and I both worked on a Account Management System in which we used angular and Asp.Net Core as backend api. We used JWT (Jason Web Tokens) for authentication and followed the N-Layerd Architecture along with Unit of Work and Repository patterns."
-            },
-            {
-                "name": "Usman Khan",
-                "designation": "Web Developer",
-                "link": "https://www.upwork.com/freelancers/~012ad4fc48eef56697",
-                "img": "https://cdn.discordapp.com/attachments/980703312544415796/981604229544288308/Usman-Khan.jpg",
-                "endorsement": "Waqar and I both worked on a Account Management System in which we used angular and Asp.Net Core as backend api. We used JWT (Jason Web Tokens) for authentication and followed the N-Layerd Architecture along with Unit of Work and Repository patterns."
-            },
-            {
-                "name": "Usman Khan",
-                "designation": "Web Developer",
-                "link": "https://www.upwork.com/freelancers/~012ad4fc48eef56697",
-                "img": "https://cdn.discordapp.com/attachments/980703312544415796/981604229544288308/Usman-Khan.jpg",
-                "endorsement": "Waqar and I both worked on a Account Management System in which we used angular and Asp.Net Core as backend api. We used JWT (Jason Web Tokens) for authentication and followed the N-Layerd Architecture along with Unit of Work and Repository patterns."
-            },
             {
                 "name": "Usman Khan",
                 "designation": "Web Developer",
