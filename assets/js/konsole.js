@@ -1,6 +1,6 @@
 // TODO:
 // + refactor lambda functions in event listeners so only our listener is removed when using $0.off("keydown")
-let showCommand ;
+let showCommand;
 "use strict";
 class KonsoleSettings {
     prefix = "T> ";
@@ -10,7 +10,8 @@ class KonsoleSettings {
     message = "If you don't know how to use it, please type \"help\" to find out commands "
 
     konsoleHelpMsg() {
-        return `<pre class="KonsoleHelpMsg"><span class="KonsoleHelpMsg">${this.message}</span></pre>`;
+        const msg =`<pre class="KonsoleHelpMsg"><span class="KonsoleHelpMsg">${this.message}</span></pre>`; 
+        return msg;
     }
     konsoleLineMarkup() {
         return `<pre class="KonsoleLine"><span class="KonsolePrefix">${this.prefix}</span><span class="KonsoleLineText"></span></pre>`;
@@ -146,7 +147,7 @@ class Konsole {
             // console.log("🚀 ~ file: konsole.js ~ line 145 ~ Konsole ~ $ ~ lastLine", lastLine)
 
             let cl;
-            
+
             if (this.validInput.includes(e.key)) {
                 lastLine.text(lastLine.text() + e.key)
             }
@@ -192,7 +193,7 @@ class Konsole {
                     });
                 }
             }
-            
+
             else if (e.code === "ArrowUp") {
                 $('.KonsoleLineText').text(showCommand)
             }
