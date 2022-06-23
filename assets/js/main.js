@@ -128,6 +128,8 @@ document.querySelector('.console').classList.add('hidden');
       prevEl: ".swiper-button-prev",
     },
   });
+
+  $(".projects").sliphover();
 })()
 
 // About Tabs 
@@ -185,3 +187,6 @@ function sendEmail() {
     }
   })
 }
+
+// Directional Overlay
+// $(".portfolio").sliphover();

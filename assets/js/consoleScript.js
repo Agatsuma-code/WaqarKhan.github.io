@@ -9,7 +9,7 @@ let konsole = new Konsole("#Console", ks);
 let data = {
     "about": [
         "I'm Waqar Khan.",
-        `I'm a web developer with experience in  Asp.net Core / Mvc, Angular and WordPress.<br>I’m currently working on Fiverr and Upwork as a freelancer in web development. <br>I have a good understanding of Web Development with these technologies. <br>I’ve got experience related to theme and API Integration.`,
+        `I'm a web developer with experience in  Asp.net Core / Mvc, Angular and WordPress.I’m currently working on Fiverr and Upwork as a freelancer in web development. I have a good understanding of Web Development with these technologies. I’ve got experience related to theme and API Integration.`,
         `That's it.`,
         `Try some other commands.`
     ],
