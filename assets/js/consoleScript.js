@@ -42,8 +42,17 @@ let data = {
             ]
         }
     ],
+    languages: [
+        {
+            name: "Urdu",
+            level: "C2"
+        },
+        {
+            name: "English",
+            level: "B1"
+        }
+    ],
     "links": [
-
         {
             "name": "Linkedin",
             "url": "https://www.linkedin.com/in/hafiz-waqar-khan/"
@@ -60,7 +69,7 @@ let data = {
             "name": "YouTube",
             "url": "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
         }
-    ]
+    ],
 };
 
 
@@ -81,13 +90,21 @@ $(async () => {
         });
     }));
 
-    konsole.RegisterKommand(new Kommand("langs", "programming languages i've worked with.", null, () => {
-        return new Promise((resolve, reject) => {
-            konsole.print(...data.languages).then(resolve);
+    // konsole.RegisterKommand(new Kommand("langs", "programming languages i've worked with.", null, () => {
+    //     return new Promise((resolve, reject) => {
+    //         konsole.print(...data.languages).then(resolve);
+    //     });
+    // }));
+
+
+    konsole.RegisterKommand(new Kommand("langs", "languages ", null, () => {
+        return new Promise(async (resolve, reject) => {
+            for (const language of data.languages) {
+                await konsole.print(`${language.name} - ${language.level}`);
+            }
+            resolve();
         });
     }));
-
-
     konsole.RegisterKommand(new Kommand("projects", "projects i've worked or working on.", null, () => {
         return new Promise(async (resolve, reject) => {
             for (const project of data.projects) {
