@@ -156,8 +156,8 @@ $(document).ready(function () {
 const form = document.querySelector('.contact_form');
 function success() {
   swal({
-    title: "Good job!",
-    text: "Successfully Sent Message!",
+    title: "Thank you for contacting!",
+    text: "Successfully Sent Message!\nI'll contact you on provided Mail.",
     icon: "success"
   });
 }
@@ -165,7 +165,7 @@ function error() {
   swal({
     title: "Please Try Again!",
     text: "Something Went wrong!",
-    icon: "success"
+    icon: "error"
   });
 }
 function sendEmail() {
