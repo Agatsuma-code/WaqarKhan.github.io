@@ -83,7 +83,7 @@ $(async () => {
     // console.log("🚀 ~ file: consoleScript.js ~ line 101 ~ $ ~ mydata", mydata)
 
 
-    console.log(profile);
+    // console.log(profile);
     konsole.RegisterKommand(new Kommand("about", "me", null, () => {
         return new Promise((resolve, reject) => {
             konsole.print(data.about).then(resolve);

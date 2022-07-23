@@ -2,158 +2,176 @@
 var profile;
 target = "_blank";
 var doc = new jsPDF('p', 'pt', 'legal');
-$(function () {
-  const consts = {
-    skills: "skills",
-    languages: "languages",
-    experiences: "experiences",
-    education: "education",
-    certification: "certification",
-    portfolio: "portfolio",
-    progress: "progress",
-    testimonial: "testimonial",
-    links: "links",
+getPlatformName = (data) => data[3].url;
 
-  };
-  title = "#title";
-  fav = "#fav";
-  name = '#name'
-  skills = "#skills_data";
-  education = "#education_history";
-  exps = ".experiences";
-  cert = "#certifications";
-  portfolio = ".projects";
-  progress = "#progress";
-  testimonial = ".swiper-wrapper";
-  languages = ".languages";
-  links = ".social-links";
+function RenderList(list, template) {
+  var res = '';
+  $.each(list, function (i, e) {
+    if (template === consts.skills) {
+      res += getSkillsTemplate(e);
+    }
+    if (template === consts.experiences) {
+      res += getExperienceTemplate(e);
+    }
+    if (template === consts.education) {
+      res += getEducationTemplate(e);
+    }
+    if (template === consts.certification) {
+      res += getCertificationTemplate(e);
+    }
+    if (template === consts.portfolio) {
+      res += getPortfolios(e);
+    }
+    // if (template === consts.progress) {
+    //   res += getProgress(e);
+    // }
+    if (template === consts.testimonial) {
+      res += getTestimonials(e);
+    }
+    if (template === consts.links) {
+      res += getLinks(e);
+    }
+  });
+  return res;
+}
 
+const consts = {
+  skills: "skills",
+  languages: "languages",
+  experiences: "experiences",
+  education: "education",
+  certification: "certification",
+  portfolio: "portfolio",
+  progress: "progress",
+  testimonial: "testimonial",
+  links: "links",
+};
 
-  $.ajax({
-    url: '../assets/data/profile.json',
-    method: 'GET',
-  }).done(function (data) {
-    profile = data.profile;
+title = "#title";
+fav = "#fav";
+name = '#name'
+skills = "#skills_data";
+education = "#education_history";
+exps = ".experiences";
+cert = "#certifications";
+portfolio = ".projects";
+progress = "#progress";
+testimonial = ".swiper-wrapper";
+languages = ".languages";
+links = ".social-links";
 
-    // var doc = new jsPDF({
-    //   // orientation: 'landscape',
-    //   // unit: 'in',
-    //   // format: [4, 2]
-    // })
+(async () => {
+  const response = await fetch('https://graph.perspective-v.com/api/resume', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "*/*"
+    },
+    body: JSON.stringify({
+      query: `query getMyResume($token:String!){
+              getbyaccesstoken(accesToken:$token){
+                name,
+                jsonData
+              }
+            }`,
+      variables: {
+        token: 'PsoFcktcf0yrQvuYgbIjSA=='
+      }
+    })
+  });
+  const body = await response.json();
+  var profile = JSON.parse(body.data.getbyaccesstoken.jsonData);
 
-    // doc.text('Hello world!', 50, 10)
-    // doc.save('two-by-four.pdf')
-    // profile.forEach(function (p, i) {
-    //   doc.text(50, 10 + (i * 10),
-    //     "Summary :" + p.about
-    //   );
-    //   doc.save('CV.pdf')
-    // })
-    // Object.entries(profile).forEach(function(p){
-    //   const [key, value] = p;
-    //    console.log(key, value);
-    // })
-    // sett profile
-    $(title).text(profile.name)
-    $('.emailLink').attr("href", `mailto:${profile.email}`)
-    $(fav).attr("href", profile.favicon)
-    $(name).text(profile.name);
-    $('#tagLine').text(profile.tagLine);
-    $('#designation').text(profile.designation);
-    $('#aboutMe').text(profile.about);
-    $('.myEmail').text(profile.email);
-    $('#phoneNo').text(profile.phone);
-    $('#degree').text(profile.degree);
-    $('#address').text(profile.address);
-    $('.time-js').text(new Date().getFullYear())
+  $(title).text(profile.name)
+  $('.emailLink').attr("href", `mailto:${profile.email}`)
+  $(fav).attr("href", profile.favicon)
+  $(name).text(profile.name);
+  $('#tagLine').text(profile.tagLine);
+  $('#designation').text(profile.designation);
+  $('#aboutMe').text(profile.about);
+  $('.myEmail').text(profile.email);
+  $('#phoneNo').text(profile.phone);
+  $('#degree').text(profile.degree);
+  $('#address').text(profile.address);
+  $('.time-js').text(new Date().getFullYear())
 
-    // skills
-    $(skills).html(RenderList(profile.skills, consts.skills));
-    // languages
-    $(languages).html(RenderList(profile.languages, consts.languages));
-    // work experience
-    $(exps).html(RenderList(profile.experiences, consts.experiences))
-    // education 
-    $(education).html(RenderList(profile.education_history, consts.education))
-    // certification 
-    $(cert).html(RenderList(profile.certifications, consts.certification))
-    // Testimonial
-    $(progress).html(RenderList(profile.progress, consts.progress))
-    $(testimonial).html(RenderList(profile.testimonial, consts.testimonial))
-    // Portfolio
-    $(portfolio).html(RenderList(profile.projects, consts.portfolio))
-    // Links
-    $(links).html(RenderList(profile.links, consts.links))
+  // skills
+  $(skills).html(RenderList(profile.skills, consts.skills));
+  // languages
+  $(languages).html(RenderList(profile.languages, consts.languages));
+  // work experience
+  $(exps).html(RenderList(profile.experiences, consts.experiences))
+  // education 
+  $(education).html(RenderList(profile.education_history, consts.education))
+  // certification 
+  $(cert).html(RenderList(profile.certifications, consts.certification))
+  // Testimonial
+  $(progress).html(RenderList(profile.progress, consts.progress))
+  $(testimonial).html(RenderList(profile.testimonial, consts.testimonial))
+  // Portfolio
+  $(portfolio).html(RenderList(profile.projects, consts.portfolio))
+  // Links
+  $(links).html(RenderList(profile.links, consts.links))
 
-
-    //#region data for pdf file
-    $('.topLevelTitle').append(profile.name);
-    $('.username_pdf').append(profile.name);
-    $('.address_pdf').append(profile.address);
-    $('.mail_pdf').append(profile.email);
-    $('.mobileNumber_pdf').append(profile.phone);
-    var linkedIn = document.querySelector('.linkedIn_pdf');
-    linkedIn.innerHTML = "linkedin.com/in/hafiz-waqar-khan/";
-    linkedIn.href = getPlatformName(profile.links);
-    linkedIn.target = target;
-    var about = $('.about_pdf').append(profile.about);
-    $.each(profile.skills, (i, skill) => $('.skill_pdf').append(`<li>${skill.name}</li>`));
-    $.each(profile.education_history, function (i, edu) { $('.education_pdf').append(`<li>${edu.institute_name}<br>${edu.type}<br>${edu.from} — ${(edu.isCurrent == true ? 'Present' : edu.to)}</li>`); });
-    $.each(profile.experiences, function (i, exp) {
-      // console.log(exp)
-      $('.experience_pdf').append(`
-      <li>
-      ${exp.company}<br>
-      ${exp.designation}<br>
-      ${exp.from} — ${(exp.isCurrent == true ? 'Present' : exp.to)}
-      ${exp.description}<br>
-      </li>`);
-    });
-    $.each(profile.certifications, function (i, cert) {
-      $('.certification_pdf').append(`
-            <li>
-            <b> ${cert.name} </b> - ${cert.source}<br>
-            </li>`);
-    });
-    //#endregion data for pdf file
-
-  }).fail(function (a, b, error) {
-    console.log(error)
+  //#region data for pdf file
+  $('.topLevelTitle').append(profile.name);
+  $('.username_pdf').append(profile.name);
+  $('.address_pdf').append(profile.address);
+  $('.mail_pdf').append(profile.email);
+  $('.mobileNumber_pdf').append(profile.phone);
+  var linkedIn = document.querySelector('.linkedIn_pdf');
+  linkedIn.innerHTML = "linkedin.com/in/hafiz-waqar-khan/";
+  linkedIn.href = getPlatformName(profile.links);
+  linkedIn.target = target;
+  var about = $('.about_pdf').append(profile.about);
+  $.each(profile.skills, (i, skill) => $('.skill_pdf').append(`<li>${skill.name}</li>`));
+  $.each(profile.education_history, function (i, edu) { $('.education_pdf').append(`<li>${edu.institute_name}<br>${edu.type}<br>${edu.from} — ${(edu.isCurrent == true ? 'Present' : edu.to)}</li>`); });
+  $.each(profile.experiences, function (i, exp) {
+    // console.log(exp)
+    $('.experience_pdf').append(`
+     <li>
+     ${exp.company}<br>
+     ${exp.designation}<br>
+     ${exp.from} — ${(exp.isCurrent == true ? 'Present' : exp.to)}
+     ${exp.description}<br>
+     </li>`);
+  });
+  $.each(profile.certifications, function (i, cert) {
+    $('.certification_pdf').append(`
+           <li>
+           <b> ${cert.name} </b> - ${cert.source}<br>
+           </li>`);
   });
 
-  function RenderList(list, template) {
-    var res = '';
-    $.each(list, function (i, e) {
-      if (template === consts.skills) {
-        res += getSkillsTemplate(e);
-      }
-      if (template === consts.experiences) {
-        res += getExperienceTemplate(e);
-      }
-      if (template === consts.education) {
-        res += getEducationTemplate(e);
-      }
-      if (template === consts.certification) {
-        res += getCertificationTemplate(e);
-      }
-      if (template === consts.portfolio) {
-        res += getPortfolios(e);
-      }
-      // if (template === consts.progress) {
-      //   res += getProgress(e);
-      // }
-      if (template === consts.testimonial) {
-        res += getTestimonials(e);
-      }
-      if (template === consts.links) {
-        res += getLinks(e);
-      }
-    });
-    return res;
-  }
 
-  function getSkillsTemplate(e) {
-    return `
+  $(document).on('click', '#gPDF', function () {
+    // doc.text(x, y, "value");
+    doc.splitTextToSize(data.about, 50)
+    // doc.fromHTML($("#pdf").html(), 25, 15);
+    // let pageHeight = doc.internal.pageSize.height;
+
+    // // Before adding new content
+    // y = 400 // Height position of new content
+    // if (y >= pageHeight) {
+    //   doc.addPage();
+    //   y = 0 // Restart height position
+    // }
+    doc.context2d.pageWrapYEnabled = true;
+    doc.fromHTML($("#pdf").html(), 20, 0, {
+      width: 550
+    });
+    doc.save(`${profile.name}'s CV.pdf`);
+
+    // doc.save(`Waqar Khan's CV.pdf`);
+
+  })
+  //#endregion data for pdf file
+})();
+
+
+
+function getSkillsTemplate(e) {
+  return `
     <div class="col-lg-6">
       <div class="progress">
         <span class="skill">${e.name} <i class="val">${e.score}</i></span>
@@ -164,11 +182,11 @@ $(function () {
       </div>
     </div>
     `
-  }
+}
 
-  function getEducationTemplate(e) {
+function getEducationTemplate(e) {
 
-    var education = `<div class="card col-lg-5 col-md-12 mx-auto mb-3">
+  var education = `<div class="card col-lg-5 col-md-12 mx-auto mb-3">
                     <div class="row education">
                       <div class="col-md-4 degree" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                         <div class="card-body cc-education-header">
@@ -185,12 +203,12 @@ $(function () {
                         </div>
                         </div>`
 
-    // <p>${e.description}</p>
-    return education;
-  }
+  // <p>${e.description}</p>
+  return education;
+}
 
-  function getExperienceTemplate(e) {
-    var exp = `<div class="card">
+function getExperienceTemplate(e) {
+  var exp = `<div class="card">
     <div class="row education">
       <div class="col-md-3 degree" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
         <div class="card-body cc-education-header">
@@ -208,7 +226,7 @@ $(function () {
     </div>
   </div>`
 
-    var proExperience = ` 
+  var proExperience = ` 
     <div class="experience-item">
           <h4>${e.designation}</h4>
           <h5>${e.from} — ${(e.isCurrent == true ? 'Present' : e.to)}</h5>
@@ -219,10 +237,11 @@ $(function () {
           </ul>
           </p>
     </div>`
-    return proExperience;
-  }
-  function getCertificationTemplate(e) {
-    var cert = `
+  return proExperience;
+}
+
+function getCertificationTemplate(e) {
+  var cert = `
     <div class="col-lg-6 col-md-12 m-auto">
       <div class="icon-box mb-1">
       <img class="me-4" src="${e.img}" alt="${e.name}" width="50" height="50">
@@ -232,11 +251,11 @@ $(function () {
       </a>
       </div>
   </div>`
-    return cert;
-  }
+  return cert;
+}
 
-  function getPortfolios(e) {
-    var projects = `
+function getPortfolios(e) {
+  var projects = `
     <div class="col-lg-4 col-md-6 portfolio-item filter-app">
         <div class="portfolio-wrap">
         <img src="${e.img}" alt="${e.name}" width="400">
@@ -250,11 +269,11 @@ $(function () {
         </div>
       </div>
       </div>`;
-    return projects;
-  }
+  return projects;
+}
 
-  function getProgress(e) {
-    var progress = `
+function getProgress(e) {
+  var progress = `
         <div class="col-lg-3 col-md-6">
           <div class="count-box">
           <i class="${e.icon}"></i>
@@ -263,14 +282,14 @@ $(function () {
           </div>
         </div>
         `
-    return progress;
-  }
+  return progress;
+}
 
-  function getTestimonials(e) {
-    var testimonials = `
+function getTestimonials(e) {
+  var testimonials = `
     <div class="swiper-slide">
     <div class="row commendation">
-    
+
     <div class="story mt-5">
     <figure class="story__shape">
     <img src="${e.img}" alt="${e.name}" class="story__image">
@@ -293,65 +312,10 @@ $(function () {
                       </div>
                     </div>
         `
-    return testimonials;
-  }
+  return testimonials;
+}
 
-  function getLinks(e) {
-    return `<a href="${e.url}" target="_blank" class="${e.name}"><i class="${e.icon}"></i></a>`;
-  }
-
-});
-
-$(document).on('click', '#gPDF', function () {
-  // doc.text(x, y, "value");
-  doc.splitTextToSize(data.about, 50)
-  // doc.fromHTML($("#pdf").html(), 25, 15);
-  // let pageHeight = doc.internal.pageSize.height;
-
-  // // Before adding new content
-  // y = 400 // Height position of new content
-  // if (y >= pageHeight) {
-  //   doc.addPage();
-  //   y = 0 // Restart height position
-  // }
-  doc.context2d.pageWrapYEnabled = true;
-  doc.fromHTML($("#pdf").html(), 20, 0, {
-    width: 550
-  });
-  doc.save(`${data.fullName}'s CV.pdf`);
-
-  // doc.save(`Waqar Khan's CV.pdf`);
-
-})
-
-getPlatformName = (data) => data[3].url;
-
-
-// fetch('../assets/data/profile.json')
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         appendData(data);
-//         console.log("🚀 ~ file: script.js ~ line 10 ~ data", data)
-//     })
-//     .catch(function (err) {
-//         console.log(err);
-//     });
-// var profile;
-// $(function () {
-
-
-//     $.ajax({
-//         url: "../assets/data/profile.json",
-//         method: "GET"
-//     }).done(function (data) {
-//         profile = data.profile;
-//         console.log("🚀 ~ file: script.js ~ line 23 ~ profile", profile);
-//         console.log()
-//     })
-
-// })
+getLinks = e => `<a href="${e.url}" target="_blank" class="${e.name}"><i class="${e.icon}"></i></a>`;
 
 
 // function appendData(data) {
@@ -377,5 +341,3 @@ getPlatformName = (data) => data[3].url;
 //         address.innerHTML = data[i].profile[i].address;
 //     }
 // }
-
-
