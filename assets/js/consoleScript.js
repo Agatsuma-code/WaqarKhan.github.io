@@ -5,97 +5,38 @@ ks.animatePrint = false;
 ks.printLetterInterval = 20;
 ks.registerDefaultKommands = false;
 let konsole = new Konsole("#Console", ks);
-
-let data = {
-    "about": [
-        "I'm Waqar Khan.",
-        `I'm a web developer with experience in  Asp.net Core / Mvc, Angular and WordPress.I’m currently working on Fiverr and Upwork as a freelancer in web development. I have a good understanding of Web Development with these technologies. I’ve got experience related to theme and API Integration.`,
-        `That's it.`,
-        `Try some other commands.`
-    ],
-    "projects": [
-        {
-            name: "Resume",
-            desc: "",
-            url: "https://hwaqarkhan.github.io/"
-        }
-    ],
-    "technologies": [
-        {
-            name: "Web",
-            items: [
-                "HTML5",
-                "CSS",
-                "BootStrap",
-                "JAVASCRIPT",
-                "Typescript",
-                "Angular",
-                "ASP.NET MVC",
-                "Wordpress"
-            ]
-        },
-        {
-            name: "Desktop",
-            items: [
-                "Electron",
-                "Tauri [planning"
-            ]
-        }
-    ],
-    languages: [
-        {
-            name: "Urdu",
-            level: "C2"
-        },
-        {
-            name: "English",
-            level: "B1"
-        }
-    ],
-    "links": [
-        {
-            "name": "Linkedin",
-            "url": "https://www.linkedin.com/in/hafiz-waqar-khan/"
-        },
-        {
-            "name": "GitHub",
-            "url": "https://github.com/HWaqarKhan"
-        },
-        {
-            "name": "Skype",
-            "url": "https://join.skype.com/invite/pd9swoskA8N0"
-        },
-        {
-            "name": "YouTube",
-            "url": "https://www.youtube.com/channel/UCWH0Pxqat1LgosgGINf4TCg?sub_confirmation=1"
-        }
-    ],
-};
-
-
 function toAnchorTag(text, url) {
     return `<a target='_blank' tabindex="-1" href='${url}'>${text}</a>`;
 }
 
 $(async () => {
 
-    // let mydata = await (await fetch("/assets/data.json")).json()
-    // console.log("🚀 ~ file: consoleScript.js ~ line 101 ~ $ ~ mydata", mydata)
+    const response = await fetch('https://graph.perspective-v.com/api/resume', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "*/*"
+    },
+    body: JSON.stringify({
+      query: `query getMyResume($token:String!){
+              getbyaccesstoken(accesToken:$token){
+                name,
+                jsonData
+              }
+            }`,
+      variables: {
+        token: 'PsoFcktcf0yrQvuYgbIjSA=='
+      }
+    })
+  });
+  const body = await response.json();
+  var data = JSON.parse(body.data.getbyaccesstoken.jsonData);
 
-
-    // console.log(profile);
     konsole.RegisterKommand(new Kommand("about", "me", null, () => {
         return new Promise((resolve, reject) => {
             konsole.print(data.about).then(resolve);
         });
     }));
-
-    // konsole.RegisterKommand(new Kommand("langs", "programming languages i've worked with.", null, () => {
-    //     return new Promise((resolve, reject) => {
-    //         konsole.print(...data.languages).then(resolve);
-    //     });
-    // }));
-
 
     konsole.RegisterKommand(new Kommand("langs", "languages ", null, () => {
         return new Promise(async (resolve, reject) => {
@@ -108,7 +49,7 @@ $(async () => {
     konsole.RegisterKommand(new Kommand("projects", "projects i've worked or working on.", null, () => {
         return new Promise(async (resolve, reject) => {
             for (const project of data.projects) {
-                await konsole.print(`${toAnchorTag(project.name, project.url)} - ${project.desc}`);
+                await konsole.print(`${toAnchorTag(project.name, project.url)} - ${project.tech}`);
             }
             resolve();
         });

@@ -146,7 +146,7 @@ links = ".social-links";
 
   $(document).on('click', '#gPDF', function () {
     // doc.text(x, y, "value");
-    doc.splitTextToSize(data.about, 50)
+    doc.splitTextToSize(profile.about, 50)
     // doc.fromHTML($("#pdf").html(), 25, 15);
     // let pageHeight = doc.internal.pageSize.height;
 

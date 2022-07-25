@@ -1652,7 +1652,9 @@ pre.KonsolePara {
 }
 
 
-
+.btn-check:focus + .btn, .btn:focus{
+  box-shadow: 0 0 0 .25rem transparent !important;
+}
 
 /*--------------------------------------------------------------
 # experience
