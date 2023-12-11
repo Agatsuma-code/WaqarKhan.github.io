@@ -207,9 +207,9 @@
         "testimonial": [
             {
                 "name": "Usman Khan",
-                "designation": "Web Developer",
-                "link": "https://www.upwork.com/freelancers/~012ad4fc48eef56697",
-                "img": "https://cdn.discordapp.com/attachments/980703312544415796/989417129025630278/Usman-Khan.jpg",
+                "designation": "Full Stack Developer",
+                "link": "https://pk.linkedin.com/in/uk-gorsi",
+                "img": "https://usman-khan-01.github.io/assets/images/profile/profile-image.jpg",
                 "endorsement": "Waqar and I both worked on a Account Management System in which we used angular and Asp.Net Core as backend api. We used JWT (Jason Web Tokens) for authentication and followed the N-Layerd Architecture along with Unit of Work and Repository patterns."
             }
         ],
